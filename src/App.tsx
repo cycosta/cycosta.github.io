@@ -1,7 +1,9 @@
-import './App.css';
+import 'normalize.css';
+
+import { Soon } from './components/Soon';
 
 function App() {
-  return <></>;
+  return <Soon />;
 }
 
 export default App;
