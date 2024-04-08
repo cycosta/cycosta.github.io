@@ -19,3 +19,5 @@ jobs:
         run: npm run lint
       - name: Format
         run: npm run format
+      - name: Unit test
+        run: npm run test
