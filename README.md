@@ -27,3 +27,9 @@ Codebase: React + TypeScript + Vite
 ```zsh
   npm run prettier
 ```
+
+**Run unit tests**
+
+```zsh
+  npm run test
+```
