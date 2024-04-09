@@ -8,5 +8,5 @@ export const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${colors.primary.light};
+  background-color: ${colors.neutral.offWhite};
 `;
