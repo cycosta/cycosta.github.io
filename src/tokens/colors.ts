@@ -1,15 +1,19 @@
 export const colors = {
   primary: {
     green: {
+      lightest: '#E7F2E7',
+      light: '#D0EAD9',
       default: '#036147',
       dark: '#38553A',
-      light: '#E7F2E7',
+      derkest: '#2D442E',
     },
   },
   neutral: {
-    dark: '#000000',
     white: '#FFFFFF',
     offWhite: '#F6F3EE',
+    gray: '#AAAAAA',
+    darkGray: '#333333',
+    dark: '#000000',
   },
   secondary: {
     caramel: {
