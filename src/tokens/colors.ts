@@ -5,15 +5,17 @@ export const colors = {
       light: '#D0EAD9',
       default: '#036147',
       dark: '#38553A',
-      derkest: '#2D442E',
+      darkest: '#2D442E',
     },
   },
   neutral: {
     white: '#FFFFFF',
     offWhite: '#F6F3EE',
-    gray: '#AAAAAA',
-    darkGray: '#333333',
-    dark: '#000000',
+    gray: {
+      default: '#AAAAAA',
+      dark: '#333333',
+    },
+    black: '#000000',
   },
   secondary: {
     caramel: {
