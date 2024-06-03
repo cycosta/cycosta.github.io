@@ -4,7 +4,7 @@ import { colors } from '../../tokens';
 
 export const StyledTypography = styled.div<{ $color?: string }>`
   &.typography {
-    color: ${({ $color }) => ($color ? $color : colors.neutral.dark)};
+    color: ${({ $color }) => ($color ? $color : colors.neutral.black)};
 
     &__headline {
       font-family: 'Tusker Grotesk';
