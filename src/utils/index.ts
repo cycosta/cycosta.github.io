@@ -1,0 +1,1 @@
+export { renderArrowSvg } from './renderArrowSvg';
