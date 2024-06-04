@@ -29,4 +29,11 @@ export const colors = {
       light: '#FFF1DD',
     },
   },
+  brand: {
+    quintoAndar: '#3957BD',
+    picpay: '#11C76F',
+    webedia: '#0028BD',
+    milk: '#08AAD9',
+    conves: '#010475',
+  },
 };
