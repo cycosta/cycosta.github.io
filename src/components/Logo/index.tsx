@@ -6,10 +6,16 @@ import LogoImage from '../../assets/images/bolt.svg';
 export const Logo = ({
   width = '24px',
   height = '24px',
+  light = false,
   onClick,
 }: LogoProps) => {
   return (
-    <StyledLogo onClick={onClick} $width={width} $height={height}>
+    <StyledLogo
+      onClick={onClick}
+      $width={width}
+      $height={height}
+      $light={light}
+    >
       <LogoImage />
     </StyledLogo>
   );

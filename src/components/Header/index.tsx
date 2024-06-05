@@ -28,7 +28,7 @@ export const Header = ({ light = false }: HeaderProps) => {
     { text: 'Work', anchor: '#work' },
     { text: 'Side Projects', anchor: '#projects' },
     { text: 'People are saying', anchor: '#featured' },
-    { text: "Let's talk", anchor: '' },
+    { text: "Let's talk", anchor: '#contact' },
   ];
 
   const activeItem = listItems[0].text;
@@ -36,12 +36,12 @@ export const Header = ({ light = false }: HeaderProps) => {
   const [navVisible, setNavVisible] = useState(false);
 
   return (
-    <StyledHeader $light={light}>
+    <StyledHeader>
       <StyledIntro>
-        <Logo onClick={() => setNavVisible(true)} />
+        <Logo onClick={() => setNavVisible(true)} light={light} />
         <Typography
           level={TypographyLevel.BODY_SMALL}
-          color={colors.primary.green.darkest}
+          color={light ? colors.neutral.white : colors.primary.green.darkest}
         >
           {activeItem}
         </Typography>
@@ -55,7 +55,9 @@ export const Header = ({ light = false }: HeaderProps) => {
           <StyledList>
             {listItems.map((item, index) => (
               <StyledListItem key={index}>
-                <StyledLink href={item.anchor}>{item.text}</StyledLink>
+                <StyledLink href={item.anchor} $light={light}>
+                  {item.text}
+                </StyledLink>
               </StyledListItem>
             ))}
           </StyledList>
@@ -64,6 +66,7 @@ export const Header = ({ light = false }: HeaderProps) => {
       <Button
         variant={ButtonVariant.SECONDARY}
         size={isMobile ? ButtonSize.SMALL : ButtonSize.LARGE}
+        light={light}
       >
         Contact
       </Button>

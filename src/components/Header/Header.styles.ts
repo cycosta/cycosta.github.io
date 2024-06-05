@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors, devices, spacing } from '../../tokens';
 import { renderArrowSvg } from '../../utils';
 
-export const StyledHeader = styled.header<{ $light: boolean }>`
+export const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,7 +112,6 @@ export const StyledListItem = styled.li`
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   font-family: 'Helvetica Neue';
   font-size: 12px;
-  color: ${colors.primary.green.dark};
 
   &:last-child {
     border-bottom: none;
@@ -139,15 +138,26 @@ export const StyledListItem = styled.li`
   }
 `;
 
-export const StyledLink = styled.a`
+export const StyledLink = styled.a<{ $light: boolean }>`
   text-decoration: none;
   color: ${colors.primary.green.dark};
 
   @media ${devices.lg} {
     transition: color 0.3s ease;
+    color: ${({ $light }) =>
+      $light ? colors.neutral.white : colors.neutral.gray.default};
+    opacity: ${({ $light }) => ($light ? 0.2 : 1)};
+
+    &:active {
+      color: ${({ $light }) =>
+        $light ? colors.neutral.white : colors.primary.green.dark};
+      opacity: 1;
+    }
 
     &:hover {
-      color: ${colors.primary.green.default};
+      color: ${({ $light }) =>
+        $light ? colors.neutral.white : colors.primary.green.default};
+      opacity: 1;
     }
   }
 `;

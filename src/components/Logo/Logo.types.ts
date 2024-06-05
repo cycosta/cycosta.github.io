@@ -1,6 +1,6 @@
 export interface LogoProps {
   width?: string;
   height?: string;
-  imageAlt?: string;
+  light?: boolean;
   onClick?: () => void;
 }
