@@ -1,9 +1,17 @@
+export const sizes = {
+  xs: 320,
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+};
+
 const breakpoints = {
-  xs: '320px',
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
+  xs: `${sizes.xs}px`,
+  sm: `${sizes.sm}px`,
+  md: `${sizes.md}px`,
+  lg: `${sizes.lg}px`,
+  xl: `${sizes.xl}px`,
 };
 
 export const devices = {
