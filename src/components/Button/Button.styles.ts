@@ -137,7 +137,7 @@ const getVariantStyles = (variant: ButtonVariant, light: boolean) => {
 };
 
 const buttonStyles = (size: string) => css`
-  height: ${size === 'large' ? '56px' : '42px'};
+  height: ${size === 'large' ? '70px' : '48px'};
   padding: ${size === 'large' ? `0 ${spacing.small}` : `0 ${spacing.xxsmall}`};
   outline: ${size === 'large' ? '2px solid' : '1px solid'};
   border: none;
