@@ -52,6 +52,8 @@ const getVariantStyles = (variant: ButtonVariant, light: boolean) => {
 
     link: `
       position: relative;
+      display: flex;
+      align-items: center;
       background-color: transparent;
       outline: none;
       color: ${light ? colors.primary.green.lightest : colors.primary.green.dark};
