@@ -21,7 +21,7 @@ import {
 } from './Header.styles';
 
 export const Header = ({ light = false }: HeaderProps) => {
-  const { isMobile } = useDevice();
+  const { isDesktop } = useDevice();
 
   const listItems = [
     { text: "Hi, I'm", anchor: '#about' },
@@ -65,7 +65,7 @@ export const Header = ({ light = false }: HeaderProps) => {
       </StyledMenu>
       <Button
         variant={ButtonVariant.SECONDARY}
-        size={isMobile ? ButtonSize.SMALL : ButtonSize.LARGE}
+        size={isDesktop ? ButtonSize.LARGE : ButtonSize.SMALL}
         light={light}
       >
         Contact

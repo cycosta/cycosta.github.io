@@ -44,6 +44,7 @@ export const StyledMenu = styled.div<{ $visible: boolean }>`
   padding: 0 ${spacing.small};
   width: 100vw;
   height: ${({ $visible }) => ($visible ? '100vh' : 0)};
+  z-index: 1;
   transform: scaleY(${({ $visible }) => ($visible ? 1 : 0)});
   transform-origin: top;
   transition: all 0.3s ease-in-out;

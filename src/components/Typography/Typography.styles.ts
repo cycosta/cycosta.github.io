@@ -33,7 +33,7 @@ export const StyledTypography = styled.div<{ $color?: string }>`
 
     &__headingMedium {
       font-family: 'Helvetica Neue';
-      font-size: 48pxpx;
+      font-size: 48px;
       line-height: 58px;
       letter-spacing: -1px;
     }
