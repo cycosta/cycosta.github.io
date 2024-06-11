@@ -14,9 +14,9 @@ export const StyledContainer = styled.section<{
     $fullScreen ? '100vh' : $height || '100%'};
   background-color: ${({ $backgroundColor }) =>
     $backgroundColor || colors.neutral.offWhite};
-  padding: 0 ${spacing.xsmall};
+  padding: ${spacing.huge} ${spacing.xsmall} ${spacing.xxlarge};
 
-  @media ${devices.md} {
-    padding: 0 ${spacing.xxlarge};
+  @media ${devices.lg} {
+    padding: ${spacing.huge} ${spacing.xxlarge};
   }
 `;

@@ -1,4 +1,5 @@
 export interface ContainerProps {
+  id: string;
   width?: string;
   height?: string;
   backgroundColor?: string;

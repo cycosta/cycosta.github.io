@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Logo, Button, Typography } from '../../components';
 import { ButtonSize, ButtonVariant } from '../Button/Button.types';
@@ -11,10 +11,10 @@ import { colors } from '../../tokens';
 import { HeaderProps } from './Header.types';
 import {
   StyledHeader,
-  StyledIntro,
+  StyledToggle,
   StyledMenu,
   StyledNav,
-  StyledToggle,
+  StyledCloseButton,
   StyledList,
   StyledListItem,
   StyledLink,
@@ -24,39 +24,58 @@ export const Header = ({ light = false }: HeaderProps) => {
   const { isDesktop } = useDevice();
 
   const listItems = [
-    { text: "Hi, I'm", anchor: '#about' },
-    { text: 'Work', anchor: '#work' },
-    { text: 'Side Projects', anchor: '#projects' },
-    { text: 'People are saying', anchor: '#featured' },
-    { text: "Let's talk", anchor: '#contact' },
+    { label: "Hi, I'm", anchor: '#about' },
+    { label: 'Work', anchor: '#work' },
+    { label: 'Side Projects', anchor: '#projects' },
+    { label: 'People are saying', anchor: '#featured' },
+    { label: "Let's talk", anchor: '#contact' },
   ];
 
-  const activeItem = listItems[0].text;
+  const [currentSection, setCurrentSection] = useState<string>(
+    listItems[0].label,
+  );
+
+  useEffect(() => {
+    const handleUrlChange = () => {
+      console.log('hashchange');
+      const hash = window.location.hash;
+      setCurrentSection(
+        listItems.find((item) => item.anchor === hash)?.label ||
+          listItems[0].label,
+      );
+    };
+
+    window.addEventListener('hashchange', handleUrlChange);
+  });
 
   const [navVisible, setNavVisible] = useState(false);
 
   return (
     <StyledHeader>
-      <StyledIntro>
+      <StyledToggle>
         <Logo onClick={() => setNavVisible(true)} light={light} />
         <Typography
           level={TypographyLevel.BODY_SMALL}
           color={light ? colors.neutral.white : colors.primary.green.darkest}
         >
-          {activeItem}
+          {currentSection}
         </Typography>
-      </StyledIntro>
+      </StyledToggle>
       <StyledMenu $visible={navVisible}>
         <StyledNav>
-          <StyledToggle
+          <StyledCloseButton
             onClick={() => setNavVisible(false)}
             $visible={navVisible}
           />
           <StyledList>
             {listItems.map((item, index) => (
               <StyledListItem key={index}>
-                <StyledLink href={item.anchor} $light={light}>
-                  {item.text}
+                <StyledLink
+                  href={item.anchor}
+                  $light={light}
+                  onClick={() => setNavVisible(false)}
+                >
+                  {item.label}
                 </StyledLink>
               </StyledListItem>
             ))}
