@@ -2,6 +2,7 @@ import { StyledContainer } from './Container.styles';
 import { ContainerProps } from './Container.types';
 
 export const Container = ({
+  id,
   width,
   height,
   backgroundColor,
@@ -10,6 +11,7 @@ export const Container = ({
 }: ContainerProps) => {
   return (
     <StyledContainer
+      id={id}
       $width={width}
       $height={height}
       $backgroundColor={backgroundColor}

@@ -4,12 +4,14 @@ import { colors, devices, spacing } from '../../tokens';
 import { renderArrowSvg } from '../../utils';
 
 export const StyledHeader = styled.header`
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 ${spacing.xsmall};
   width: 100%;
   height: 80px;
+  z-index: 1;
 
   svg {
     width: 24px;
@@ -26,10 +28,10 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const StyledIntro = styled.div`
+export const StyledToggle = styled.div`
   display: flex;
   align-items: center;
-  gap: ${spacing.small};
+  gap: ${spacing.xxsmall};
 
   @media ${devices.lg} {
     display: none;
@@ -44,7 +46,7 @@ export const StyledMenu = styled.div<{ $visible: boolean }>`
   padding: 0 ${spacing.small};
   width: 100vw;
   height: ${({ $visible }) => ($visible ? '100vh' : 0)};
-  z-index: 1;
+  z-index: 2;
   transform: scaleY(${({ $visible }) => ($visible ? 1 : 0)});
   transform-origin: top;
   transition: all 0.3s ease-in-out;
@@ -65,7 +67,7 @@ export const StyledNav = styled.nav`
   height: 80px;
 `;
 
-export const StyledToggle = styled.button<{ $visible: boolean }>`
+export const StyledCloseButton = styled.button<{ $visible: boolean }>`
   position: relative;
   width: 18px;
   height: 2px;
@@ -135,7 +137,7 @@ export const StyledListItem = styled.li`
   @media ${devices.lg} {
     border-bottom: none;
     font-family: 'FleuronRegular';
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 

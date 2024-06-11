@@ -12,7 +12,7 @@ export const StyledTypography = styled.div<{ $color?: string }>`
       font-size: 160px;
       line-height: 164px;
 
-      @media ${devices.md} {
+      @media ${devices.xl} {
         font-size: 300px;
         line-height: 300px;
         letter-spacing: -1px;
@@ -25,7 +25,7 @@ export const StyledTypography = styled.div<{ $color?: string }>`
       font-size: 56px;
       line-height: 60px;
 
-      @media ${devices.md} {
+      @media ${devices.xl} {
         font-size: 200px;
         line-height: 230px;
       }
@@ -49,7 +49,7 @@ export const StyledTypography = styled.div<{ $color?: string }>`
       font-size: 24px;
       line-height: 32px;
 
-      @media ${devices.md} {
+      @media ${devices.xl} {
         font-size: 24px;
         line-height: 29px;
       }
@@ -60,7 +60,7 @@ export const StyledTypography = styled.div<{ $color?: string }>`
       font-size: 12px;
       line-height: 16px;
 
-      @media ${devices.md} {
+      @media ${devices.xl} {
         font-size: 16px;
         line-height: 19px;
       }
