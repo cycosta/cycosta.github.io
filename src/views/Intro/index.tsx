@@ -2,7 +2,6 @@ import { Container, Typography } from '../../components';
 import { TypographyLevel } from '../../components/Typography/Typography.types';
 import { colors } from '../../tokens';
 
-import profileImage from '../../assets/images/cycosta.jpg';
 import Bolt from '../../assets/images/bolt.svg';
 
 import {
@@ -54,7 +53,10 @@ export const Intro = () => {
           </StyledParagraph>
         </StyledHeadline>
         <StyledImageContainer>
-          <StyledImage src={profileImage} alt="Cynthia Costa" />
+          <StyledImage
+            src="src/assets/images/cycosta.jpg"
+            alt="Cynthia Costa"
+          />
         </StyledImageContainer>
         <StyledContent>
           <Typography
