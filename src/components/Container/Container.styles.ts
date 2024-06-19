@@ -7,6 +7,7 @@ export const StyledContainer = styled.section<{
   $height?: string;
   $backgroundColor?: string;
   $fullScreen?: boolean;
+  $noPadding?: boolean;
 }>`
   width: ${({ $width, $fullScreen }) =>
     $fullScreen ? '100vw' : $width || '100%'};
@@ -14,9 +15,14 @@ export const StyledContainer = styled.section<{
     $fullScreen ? '100vh' : $height || '100%'};
   background-color: ${({ $backgroundColor }) =>
     $backgroundColor || colors.neutral.offWhite};
-  padding: ${spacing.huge} ${spacing.xsmall} ${spacing.xxlarge};
+  padding-top: ${({ $noPadding }) => ($noPadding ? 0 : spacing.huge)};
+  padding-bottom: ${({ $noPadding }) => ($noPadding ? 0 : spacing.huge)};
+  padding-left: ${({ $noPadding }) => ($noPadding ? 0 : spacing.xsmall)};
+  padding-right: ${({ $noPadding }) => ($noPadding ? 0 : spacing.xsmall)};
+  transition: background-color 0.5s;
 
   @media ${devices.lg} {
-    padding: ${spacing.huge} ${spacing.xxlarge};
+    padding-left: ${({ $noPadding }) => ($noPadding ? 0 : spacing.xxlarge)};
+    padding-right: ${({ $noPadding }) => ($noPadding ? 0 : spacing.xxlarge)};
   }
 `;

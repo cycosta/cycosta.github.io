@@ -5,4 +5,5 @@ export interface ContainerProps {
   backgroundColor?: string;
   fullScreen?: boolean;
   children: React.ReactNode;
+  noPadding?: boolean;
 }

@@ -37,8 +37,8 @@ export const Header = ({ light = false }: HeaderProps) => {
 
   useEffect(() => {
     const handleUrlChange = () => {
-      console.log('hashchange');
       const hash = window.location.hash;
+
       setCurrentSection(
         listItems.find((item) => item.anchor === hash)?.label ||
           listItems[0].label,
