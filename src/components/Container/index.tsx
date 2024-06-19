@@ -8,6 +8,7 @@ export const Container = ({
   backgroundColor,
   fullScreen,
   children,
+  noPadding,
 }: ContainerProps) => {
   return (
     <StyledContainer
@@ -16,6 +17,7 @@ export const Container = ({
       $height={height}
       $backgroundColor={backgroundColor}
       $fullScreen={fullScreen}
+      $noPadding={noPadding}
     >
       {children}
     </StyledContainer>
