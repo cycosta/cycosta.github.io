@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { Logo, Button, Typography } from '../../components';
 import { ButtonSize, ButtonVariant } from '../Button/Button.types';
@@ -23,42 +24,43 @@ import {
 export const Header = ({ light = false }: HeaderProps) => {
   const { isDesktop } = useDevice();
 
-  const listItems = [
-    { label: "Hi, I'm", anchor: '#about' },
-    { label: 'Work', anchor: '#work' },
-    { label: 'Side Projects', anchor: '#projects' },
-    { label: 'People are saying', anchor: '#featured' },
-    { label: "Let's talk", anchor: '#contact' },
+  const listItems: { label: string; anchor: string; dark: boolean }[] = [
+    { label: "Hi, I'm", anchor: '#about', dark: false },
+    { label: 'Work', anchor: '#work', dark: true },
+    { label: 'Side Projects', anchor: '#projects', dark: false },
+    { label: 'People are saying', anchor: '#featured', dark: false },
+    { label: "Let's talk", anchor: '#contact', dark: true },
   ];
 
-  const [currentSection, setCurrentSection] = useState<string>(
-    listItems[0].label,
-  );
+  const location = useLocation();
+
+  const [currentSection, setCurrentSection] = useState(listItems[0]);
 
   useEffect(() => {
-    const handleUrlChange = () => {
-      const hash = window.location.hash;
+    const { hash } = location;
 
-      setCurrentSection(
-        listItems.find((item) => item.anchor === hash)?.label ||
-          listItems[0].label,
-      );
-    };
-
-    window.addEventListener('hashchange', handleUrlChange);
-  });
+    setCurrentSection(
+      listItems.find((item) => item.anchor === hash) || listItems[0],
+    );
+  }, [location]);
 
   const [navVisible, setNavVisible] = useState(false);
+
+  const renderLightMode = light || currentSection.dark;
 
   return (
     <StyledHeader>
       <StyledToggle>
-        <Logo onClick={() => setNavVisible(true)} light={light} />
+        <Logo onClick={() => setNavVisible(true)} light={renderLightMode} />
         <Typography
           level={TypographyLevel.BODY_SMALL}
-          color={light ? colors.neutral.white : colors.primary.green.darkest}
+          color={
+            renderLightMode
+              ? colors.neutral.white
+              : colors.primary.green.darkest
+          }
         >
-          {currentSection}
+          {currentSection?.label}
         </Typography>
       </StyledToggle>
       <StyledMenu $visible={navVisible}>
@@ -71,9 +73,13 @@ export const Header = ({ light = false }: HeaderProps) => {
             {listItems.map((item, index) => (
               <StyledListItem key={index}>
                 <StyledLink
-                  href={item.anchor}
-                  $light={light}
+                  to={item.anchor}
+                  smooth
+                  $light={renderLightMode}
                   onClick={() => setNavVisible(false)}
+                  className={
+                    currentSection?.label === item.label ? 'active' : ''
+                  }
                 >
                   {item.label}
                 </StyledLink>
@@ -85,7 +91,7 @@ export const Header = ({ light = false }: HeaderProps) => {
       <Button
         variant={ButtonVariant.SECONDARY}
         size={isDesktop ? ButtonSize.LARGE : ButtonSize.SMALL}
-        light={light}
+        light={renderLightMode}
       >
         Contact
       </Button>

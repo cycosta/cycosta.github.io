@@ -37,6 +37,7 @@ export const StyledCarouselTitle = styled.div<{
   gap: ${spacing.hxxsmall};
   width: 100%;
   text-align: center;
+  cursor: pointer;
 
   @media ${devices.lg} {
     grid-template-columns: ${spacing.large} 1fr ${spacing.large};
@@ -76,6 +77,10 @@ export const StyledCarouselContent = styled.div`
   gap: ${spacing.hxxsmall};
   justify-content: space-between;
   padding: ${spacing.small} ${spacing.xsmall} 0;
+
+  @media ${devices.lg} {
+    padding: ${spacing.small} ${spacing.xxlarge} 0;
+  }
 `;
 
 export const StyledProgressContainer = styled.div`

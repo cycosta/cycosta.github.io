@@ -15,14 +15,14 @@ export const StyledContainer = styled.section<{
     $fullScreen ? '100vh' : $height || '100%'};
   background-color: ${({ $backgroundColor }) =>
     $backgroundColor || colors.neutral.offWhite};
-  padding-top: ${({ $noPadding }) => ($noPadding ? 0 : spacing.huge)};
-  padding-bottom: ${({ $noPadding }) => ($noPadding ? 0 : spacing.huge)};
-  padding-left: ${({ $noPadding }) => ($noPadding ? 0 : spacing.xsmall)};
-  padding-right: ${({ $noPadding }) => ($noPadding ? 0 : spacing.xsmall)};
+  padding: ${({ $noPadding }) =>
+    $noPadding
+      ? 0
+      : spacing.xsmall + ' ' + spacing.xsmall + ' ' + spacing.huge};
   transition: background-color 0.5s;
 
   @media ${devices.lg} {
-    padding-left: ${({ $noPadding }) => ($noPadding ? 0 : spacing.xxlarge)};
-    padding-right: ${({ $noPadding }) => ($noPadding ? 0 : spacing.xxlarge)};
+    padding: ${({ $noPadding }) =>
+      $noPadding ? 0 : 0 + ' ' + spacing.xxlarge + ' ' + spacing.huge};
   }
 `;

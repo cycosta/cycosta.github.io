@@ -1,14 +1,18 @@
 import styled from 'styled-components';
+import { HashLink } from 'react-router-hash-link';
 
 import { colors, devices, spacing } from '../../tokens';
 import { renderArrowSvg } from '../../utils';
 
 export const StyledHeader = styled.header`
-  position: fixed;
+  position: sticky;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 ${spacing.xsmall};
+  background-color: transparent;
   width: 100%;
   height: 80px;
   z-index: 1;
@@ -141,7 +145,7 @@ export const StyledListItem = styled.li`
   }
 `;
 
-export const StyledLink = styled.a<{ $light: boolean }>`
+export const StyledLink = styled(HashLink)<{ $light: boolean }>`
   text-decoration: none;
   color: ${colors.primary.green.dark};
 
@@ -151,15 +155,15 @@ export const StyledLink = styled.a<{ $light: boolean }>`
       $light ? colors.neutral.white : colors.neutral.gray.default};
     opacity: ${({ $light }) => ($light ? 0.2 : 1)};
 
-    &:active {
-      color: ${({ $light }) =>
-        $light ? colors.neutral.white : colors.primary.green.dark};
-      opacity: 1;
-    }
-
     &:hover {
       color: ${({ $light }) =>
         $light ? colors.neutral.white : colors.primary.green.default};
+      opacity: 1;
+    }
+
+    &.active {
+      color: ${({ $light }) =>
+        $light ? colors.neutral.white : colors.primary.green.dark};
       opacity: 1;
     }
   }
