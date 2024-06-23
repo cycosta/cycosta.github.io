@@ -61,10 +61,12 @@ export const Work = () => {
               key={index}
               $current={current}
               $active={current === index}
-              onMouseEnter={() => isDesktop && setPaused(true)}
-              onMouseLeave={() => isDesktop && setPaused(false)}
             >
-              <StyledCarouselTitle $active={current === index}>
+              <StyledCarouselTitle
+                $active={current === index}
+                onMouseEnter={() => isDesktop && setPaused(true)}
+                onMouseLeave={() => isDesktop && setPaused(false)}
+              >
                 <StyledButton onClick={() => setCurrent(current - 1)}>
                   <Typography
                     level={TypographyLevel.HEADING_LARGE}
