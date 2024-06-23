@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 
 import { Logo, Button, Typography } from '../../components';
 import { ButtonSize, ButtonVariant } from '../Button/Button.types';
@@ -64,29 +64,31 @@ export const Header = ({ light = false }: HeaderProps) => {
         </Typography>
       </StyledToggle>
       <StyledMenu $visible={navVisible}>
-        <StyledNav>
-          <StyledCloseButton
-            onClick={() => setNavVisible(false)}
-            $visible={navVisible}
-          />
-          <StyledList>
-            {listItems.map((item, index) => (
-              <StyledListItem key={index}>
-                <StyledLink
-                  to={item.anchor}
-                  smooth
-                  $light={renderLightMode}
-                  onClick={() => setNavVisible(false)}
-                  className={
-                    currentSection?.label === item.label ? 'active' : ''
-                  }
-                >
-                  {item.label}
-                </StyledLink>
-              </StyledListItem>
-            ))}
-          </StyledList>
-        </StyledNav>
+        <BrowserRouter>
+          <StyledNav>
+            <StyledCloseButton
+              onClick={() => setNavVisible(false)}
+              $visible={navVisible}
+            />
+            <StyledList>
+              {listItems.map((item, index) => (
+                <StyledListItem key={index}>
+                  <StyledLink
+                    to={item.anchor}
+                    smooth
+                    $light={renderLightMode}
+                    onClick={() => setNavVisible(false)}
+                    className={
+                      currentSection?.label === item.label ? 'active' : ''
+                    }
+                  >
+                    {item.label}
+                  </StyledLink>
+                </StyledListItem>
+              ))}
+            </StyledList>
+          </StyledNav>
+        </BrowserRouter>
       </StyledMenu>
       <Button
         variant={ButtonVariant.SECONDARY}

@@ -15,8 +15,8 @@ export const List = ({ light = false, items }: ListProps) => {
 
   return (
     <StyledList>
-      {items.map((item) => (
-        <StyledListItem>
+      {items.map((item, index) => (
+        <StyledListItem key={index}>
           <StyledLink href={item.url} $light={light}>
             <StyledTitle>{item.title}</StyledTitle>
             {isDesktop && (
