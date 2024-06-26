@@ -17,7 +17,7 @@ export const List = ({ light = false, items }: ListProps) => {
     <StyledList>
       {items.map((item, index) => (
         <StyledListItem key={index}>
-          <StyledLink href={item.url} $light={light}>
+          <StyledLink href={item.url} $light={light} target="_blank">
             <StyledTitle>{item.title}</StyledTitle>
             {isDesktop && (
               <Button variant={ButtonVariant.LINK}>Read more</Button>

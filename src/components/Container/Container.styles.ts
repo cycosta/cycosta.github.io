@@ -23,6 +23,8 @@ export const StyledContainer = styled.section<{
 
   @media ${devices.lg} {
     padding: ${({ $noPadding }) =>
-      $noPadding ? 0 : 0 + ' ' + spacing.xxlarge + ' ' + spacing.huge};
+      $noPadding
+        ? 0
+        : spacing.huge + ' ' + spacing.xxlarge + ' ' + spacing.huge};
   }
 `;
