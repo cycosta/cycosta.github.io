@@ -54,7 +54,7 @@ export const Work = () => {
     >
       <StyledCarouselContainer>
         {jobsList.map((job, index) => {
-          const { title, date, description } = getJobsData(job);
+          const { company, date, description } = getJobsData(job);
 
           return (
             <StyledCarouselItem
@@ -72,21 +72,21 @@ export const Work = () => {
                     level={TypographyLevel.HEADING_LARGE}
                     color={colors.neutral.white}
                   >
-                    {getJobsData(jobsList[previous])?.title}
+                    {getJobsData(jobsList[previous])?.company}
                   </Typography>
                 </StyledButton>
                 <Typography
                   level={TypographyLevel.HEADING_LARGE}
                   color={colors.neutral.white}
                 >
-                  {title}
+                  {company}
                 </Typography>
                 <StyledButton onClick={() => setCurrent(current + 1)}>
                   <Typography
                     level={TypographyLevel.HEADING_LARGE}
                     color={colors.neutral.white}
                   >
-                    {getJobsData(jobsList[next])?.title}
+                    {getJobsData(jobsList[next])?.company}
                   </Typography>
                 </StyledButton>
               </StyledCarouselTitle>

@@ -18,7 +18,7 @@ export const Container = ({
   const navigate = useNavigate();
 
   const targetRef = useRef(null);
-  const inViewport = useInViewport(targetRef, { threshold: 0.5 });
+  const inViewport = useInViewport(targetRef, { threshold: 0.2 });
 
   useEffect(() => {
     if (inViewport) {

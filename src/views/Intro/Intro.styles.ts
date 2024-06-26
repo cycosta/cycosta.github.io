@@ -2,12 +2,6 @@ import styled from 'styled-components';
 
 import { devices, spacing } from '../../tokens';
 
-export const StyledAnimatedHeadline = styled.div`
-  position: absolute;
-  left: ${spacing.xsmall};
-  transform-origin: top left;
-`;
-
 export const StyledWrapper = styled.div`
   display: grid;
   grid-template-rows: 200px 1fr max-content;

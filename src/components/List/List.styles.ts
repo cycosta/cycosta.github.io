@@ -5,7 +5,6 @@ import { renderArrowSvg } from '../../utils';
 
 export const StyledList = styled.ul`
   margin: 0;
-  padding: 20px;
   width: 100%;
   list-style: none;
 `;
@@ -37,7 +36,7 @@ export const StyledListItem = styled.li`
 export const StyledLink = styled.a<{ $light: boolean }>`
   display: grid;
   grid-template-columns: 1fr max-content;
-  grid-gap: ${spacing.xsmall};
+  grid-gap: ${spacing.small};
   text-decoration: none;
   font-family: 'Helvetica Neue';
   font-size: 12px;
@@ -46,6 +45,7 @@ export const StyledLink = styled.a<{ $light: boolean }>`
     $light ? colors.neutral.offWhite : colors.primary.green.dark};
 
   @media ${devices.md} {
+    grid-gap: ${spacing.xsmall};
     font-size: 32px;
     line-height: 42px;
   }
