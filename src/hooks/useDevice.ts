@@ -21,6 +21,7 @@ export const useDevice = () => {
   const isMobile = width <= sizes.sm;
   const isMediumUp = width > sizes.sm;
   const isDesktop = width > sizes.md;
+  const isLargeDesktop = width >= sizes.lg;
 
-  return { isMobile, isMediumUp, isDesktop };
+  return { isMobile, isMediumUp, isDesktop, isLargeDesktop };
 };
