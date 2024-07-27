@@ -13,7 +13,7 @@ export const Container = ({
   backgroundColor,
   fullScreen,
   children,
-  noPadding,
+  padding,
 }: ContainerProps) => {
   const navigate = useNavigate();
 
@@ -34,7 +34,7 @@ export const Container = ({
       $height={height}
       $backgroundColor={backgroundColor}
       $fullScreen={fullScreen}
-      $noPadding={noPadding}
+      $padding={padding}
     >
       {children}
     </StyledContainer>

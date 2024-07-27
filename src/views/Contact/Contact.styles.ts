@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { devices, spacing } from '../../tokens';
+import { spacing, devices } from '../../tokens';
 
 export const StyledWrapper = styled.div`
   display: grid;
@@ -30,35 +30,15 @@ export const StyledImageContainer = styled.div`
 
 export const StyledImage = styled.img`
   width: 240px;
-  height: 340px;
+  height: 350px;
   object-fit: cover;
 
   @media ${devices.md} {
     width: 100%;
     height: 530px;
   }
-
-  @media ${devices.xl} {
-    width: 480px;
-    height: 630px;
-  }
 `;
 
-export const StyledContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${spacing.large};
-  padding: ${spacing.xlarge} 0;
-
-  @media ${devices.md} {
-    gap: 200px;
-    padding: 0;
-  }
-`;
-
-export const StyledSkillsList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: ${spacing.hxxsmall} ${spacing.xxsmall};
-  list-style-type: none;
+export const StyledListContainer = styled.div`
+  width: 100%;
 `;

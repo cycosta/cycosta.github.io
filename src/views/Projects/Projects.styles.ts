@@ -45,7 +45,7 @@ export const StyledGalleryItem = styled.div<{
 
   @media ${devices.lg} {
     width: 32%;
-    height: 100%;
+    height: 90%;
     transition: transform 1s linear;
   }
 `;

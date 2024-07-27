@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 
 import { colors } from '../../tokens';
-import { Jobs } from '../../enums';
 import { useDevice } from '../../hooks';
+import { workData } from '../../data';
 
 import { Container, Typography, ProgressBar } from '../../components';
 import { TypographyLevel } from '../../components/Typography/Typography.types';
+import { Padding } from '../../components/Container/Container.types';
 
 import {
   StyledCarouselContainer,
@@ -15,12 +16,9 @@ import {
   StyledCarouselContent,
   StyledProgressContainer,
 } from './Work.styles';
-import { getJobsData } from './utils';
 
 export const Work = () => {
   const { isMobile, isDesktop } = useDevice();
-
-  const jobsList = Object.values(Jobs);
 
   const [current, setCurrent] = useState(0);
   const [previous, setPrevious] = useState<number>(0);
@@ -28,7 +26,7 @@ export const Work = () => {
   const [paused, setPaused] = useState(false);
 
   const carouselLoop = () => {
-    if (current === jobsList.length - 1) return setCurrent(0);
+    if (current === workData.length - 1) return setCurrent(0);
 
     return setCurrent(current + 1);
   };
@@ -36,7 +34,7 @@ export const Work = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       paused ? null : carouselLoop();
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(interval);
   });
@@ -49,12 +47,12 @@ export const Work = () => {
   return (
     <Container
       id="work"
-      backgroundColor={getJobsData(jobsList[current]).color}
-      noPadding
+      backgroundColor={workData[current].brandColor}
+      padding={Padding.VERTICAL}
     >
       <StyledCarouselContainer>
-        {jobsList.map((job, index) => {
-          const { company, date, description } = getJobsData(job);
+        {workData.map((job, index) => {
+          const { name, date, description } = job;
 
           return (
             <StyledCarouselItem
@@ -72,21 +70,21 @@ export const Work = () => {
                     level={TypographyLevel.HEADING_LARGE}
                     color={colors.neutral.white}
                   >
-                    {getJobsData(jobsList[previous])?.company}
+                    {workData[previous]?.name}
                   </Typography>
                 </StyledButton>
                 <Typography
                   level={TypographyLevel.HEADING_LARGE}
                   color={colors.neutral.white}
                 >
-                  {company}
+                  {name}
                 </Typography>
                 <StyledButton onClick={() => setCurrent(current + 1)}>
                   <Typography
                     level={TypographyLevel.HEADING_LARGE}
                     color={colors.neutral.white}
                   >
-                    {getJobsData(jobsList[next])?.company}
+                    {workData[next]?.name}
                   </Typography>
                 </StyledButton>
               </StyledCarouselTitle>
@@ -109,7 +107,7 @@ export const Work = () => {
         })}
         {isMobile && (
           <StyledProgressContainer>
-            <ProgressBar numberOfItems={jobsList.length} activeItem={current} />
+            <ProgressBar numberOfItems={workData.length} activeItem={current} />
           </StyledProgressContainer>
         )}
       </StyledCarouselContainer>
