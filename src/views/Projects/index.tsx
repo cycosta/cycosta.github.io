@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 import { Container } from '../../components';
+import { Padding } from '../../components/Container/Container.types';
+
 import { projectsData } from '../../data';
 import { useDevice } from '../../hooks';
 
@@ -43,7 +45,7 @@ export const Projects = () => {
   };
 
   return (
-    <Container id="projects" noPadding>
+    <Container id="projects" padding={Padding.VERTICAL}>
       <StyledGalleryContainer>
         {projectsData.map((project, index) => (
           <StyledGalleryItem

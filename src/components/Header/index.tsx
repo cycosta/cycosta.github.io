@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { Logo, Button, Typography } from '../../components';
-import { ButtonSize, ButtonVariant } from '../Button/Button.types';
+import { Icon, Logo, Typography } from '../../components';
+import { IconType } from '../Icon/Icon.types';
 import { TypographyLevel } from '../Typography/Typography.types';
 
+import { colors } from '../../tokens';
 import { useDevice } from '../../hooks';
 
-import { colors } from '../../tokens';
-
-import { HeaderProps } from './Header.types';
 import {
   StyledHeader,
   StyledToggle,
@@ -21,8 +19,8 @@ import {
   StyledLink,
 } from './Header.styles';
 
-export const Header = ({ light = false }: HeaderProps) => {
-  const { isDesktop } = useDevice();
+export const Header = () => {
+  const { isMobile } = useDevice();
 
   const listItems: { label: string; anchor: string; dark: boolean }[] = [
     { label: "Hi, I'm", anchor: '#about', dark: false },
@@ -34,69 +32,58 @@ export const Header = ({ light = false }: HeaderProps) => {
 
   const location = useLocation();
 
-  const [currentSection, setCurrentSection] = useState(listItems[0]);
-
-  useEffect(() => {
-    const { hash } = location;
-
-    setCurrentSection(
-      listItems.find((item) => item.anchor === hash) || listItems[0],
-    );
-  }, [location]);
+  const currentSection = listItems.find(
+    (item) => item.anchor === location.hash,
+  );
 
   const [navVisible, setNavVisible] = useState(false);
 
-  const renderLightMode = light || currentSection.dark;
+  const light = currentSection?.dark;
 
   return (
     <StyledHeader>
       <StyledToggle>
-        <Logo onClick={() => setNavVisible(true)} light={renderLightMode} />
+        <Logo onClick={() => setNavVisible(true)} light={light} />
         <Typography
           level={TypographyLevel.BODY_SMALL}
-          color={
-            renderLightMode
-              ? colors.neutral.white
-              : colors.primary.green.darkest
-          }
+          color={light ? colors.neutral.white : colors.primary.green.darkest}
         >
           {currentSection?.label}
         </Typography>
       </StyledToggle>
       <StyledMenu $visible={navVisible}>
-        <BrowserRouter>
-          <StyledNav>
-            <StyledCloseButton
-              onClick={() => setNavVisible(false)}
-              $visible={navVisible}
-            />
-            <StyledList>
-              {listItems.map((item, index) => (
-                <StyledListItem key={index}>
-                  <StyledLink
-                    to={item.anchor}
-                    smooth
-                    $light={renderLightMode}
-                    onClick={() => setNavVisible(false)}
-                    className={
-                      currentSection?.label === item.label ? 'active' : ''
-                    }
-                  >
-                    {item.label}
-                  </StyledLink>
-                </StyledListItem>
-              ))}
-            </StyledList>
-          </StyledNav>
-        </BrowserRouter>
+        <StyledNav>
+          <StyledCloseButton
+            onClick={() => setNavVisible(false)}
+            $visible={navVisible}
+          />
+          <StyledList>
+            {listItems.map((item, index) => (
+              <StyledListItem key={index}>
+                <StyledLink
+                  to={item.anchor}
+                  smooth
+                  $light={light}
+                  onClick={() => setNavVisible(false)}
+                  className={
+                    currentSection?.label === item.label ? 'active' : ''
+                  }
+                >
+                  {item.label}
+                  {isMobile && (
+                    <Icon
+                      type={IconType.ARROW}
+                      color={colors.primary.green.dark}
+                      width="16"
+                      height="12"
+                    />
+                  )}
+                </StyledLink>
+              </StyledListItem>
+            ))}
+          </StyledList>
+        </StyledNav>
       </StyledMenu>
-      <Button
-        variant={ButtonVariant.SECONDARY}
-        size={isDesktop ? ButtonSize.LARGE : ButtonSize.SMALL}
-        light={renderLightMode}
-      >
-        Contact
-      </Button>
     </StyledHeader>
   );
 };

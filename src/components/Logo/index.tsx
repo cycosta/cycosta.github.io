@@ -1,7 +1,7 @@
 import { LogoProps } from './Logo.types';
 import { StyledLogo } from './Logo.styles';
 
-import LogoImage from '../../assets/images/bolt.svg';
+import LogoImage from '../../assets/images/logo.svg';
 
 export const Logo = ({
   width = '24px',

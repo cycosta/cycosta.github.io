@@ -1,8 +1,8 @@
 import { StyledWrapper } from './styled';
-import Bolt from '../../assets/images/bolt.svg';
+import Logo from '../../assets/images/logo.svg';
 
 export const Soon = () => (
   <StyledWrapper>
-    <Bolt />
+    <Logo />
   </StyledWrapper>
 );

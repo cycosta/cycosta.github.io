@@ -13,8 +13,8 @@ export const StyledTypography = styled.div<{ $color?: string }>`
       line-height: 164px;
 
       @media ${devices.xl} {
-        font-size: 300px;
-        line-height: 300px;
+        font-size: 200px;
+        line-height: 200px;
         letter-spacing: -1px;
       }
     }
@@ -26,7 +26,7 @@ export const StyledTypography = styled.div<{ $color?: string }>`
       line-height: 60px;
 
       @media ${devices.xl} {
-        font-size: 200px;
+        font-size: 180px;
         line-height: 230px;
       }
     }

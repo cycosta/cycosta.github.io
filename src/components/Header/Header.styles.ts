@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { HashLink } from 'react-router-hash-link';
 
 import { colors, devices, spacing } from '../../tokens';
-import { renderArrowSvg } from '../../utils';
 
 export const StyledHeader = styled.header`
   position: sticky;
@@ -16,15 +15,6 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: 80px;
   z-index: 1;
-
-  svg {
-    width: 24px;
-    height: 24px;
-
-    @media ${devices.lg} {
-      display: none;
-    }
-  }
 
   @media ${devices.lg} {
     padding: ${spacing.medium} ${spacing.xxlarge};
@@ -50,7 +40,7 @@ export const StyledMenu = styled.div<{ $visible: boolean }>`
   padding: 0 ${spacing.small};
   width: 100vw;
   height: ${({ $visible }) => ($visible ? '100vh' : 0)};
-  z-index: 2;
+  z-index: 1;
   transform: scaleY(${({ $visible }) => ($visible ? 1 : 0)});
   transform-origin: top;
   transition: all 0.3s ease-in-out;
@@ -124,20 +114,6 @@ export const StyledListItem = styled.li`
     border-bottom: none;
   }
 
-  &::after {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    content: url('data:image/svg+xml;charset=UTF-8, ${encodeURIComponent(
-      renderArrowSvg(colors.primary.green.dark),
-    )}');
-
-    @media ${devices.lg} {
-      display: none;
-    }
-  }
-
   @media ${devices.lg} {
     border-bottom: none;
     font-family: 'FleuronRegular';
@@ -145,7 +121,10 @@ export const StyledListItem = styled.li`
   }
 `;
 
-export const StyledLink = styled(HashLink)<{ $light: boolean }>`
+export const StyledLink = styled(HashLink)<{ $light?: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-decoration: none;
   color: ${colors.primary.green.dark};
 
