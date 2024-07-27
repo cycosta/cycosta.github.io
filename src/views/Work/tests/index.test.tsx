@@ -5,7 +5,7 @@ import { Work } from '..';
 describe('<Work />', () => {
   const renderComponent = () => render(<Work />);
 
-  it('should render component with default content', () => {
+  it('should render component with first content in view', () => {
     renderComponent();
 
     expect(
@@ -16,7 +16,7 @@ describe('<Work />', () => {
     expect(screen.getByText(/2021 — present/i)).toBeInTheDocument();
     expect(
       screen.getByText(
-        /i am part of the team responsible for the entire visits experience\./i,
+        /brazil's largest proptech, where i contribute to enhancing the entire visits experience within a team of over 15 people\./i,
       ),
     ).toBeInTheDocument();
   });

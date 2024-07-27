@@ -31,6 +31,7 @@ export const Header = () => {
   ];
 
   const location = useLocation();
+
   const currentSection = listItems.find(
     (item) => item.anchor === location.hash,
   );
