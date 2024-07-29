@@ -48,7 +48,7 @@ export const Work = () => {
     <Container
       id="work"
       backgroundColor={workData[current].brandColor}
-      padding={Padding.VERTICAL}
+      padding={Padding.NONE}
     >
       <StyledCarouselContainer>
         {workData.map((job, index) => {

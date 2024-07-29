@@ -1,5 +1,6 @@
 export enum Padding {
   NONE = 'NONE',
+  DEFAULT = 'DEFAULT',
   FULL = 'FULL',
   VERTICAL = 'VERTICAL',
   HORIZONTAL = 'HORIZONTAL',
@@ -10,7 +11,6 @@ export interface ContainerProps {
   width?: string;
   height?: string;
   backgroundColor?: string;
-  fullScreen?: boolean;
   children: React.ReactNode;
   padding?: Padding;
 }

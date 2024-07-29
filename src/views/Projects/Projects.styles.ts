@@ -20,7 +20,7 @@ export const StyledGalleryContainer = styled.div`
   padding: 0 ${spacing.xsmall} 0;
   overflow-x: hidden;
 
-  @media ${devices.lg} {
+  @media ${devices.md} {
     gap: ${spacing.hxxsmall};
     padding: ${spacing.huge} ${spacing.xxlarge} ${spacing.huge};
   }
@@ -43,7 +43,7 @@ export const StyledGalleryItem = styled.div<{
   transition: transform 0.5s linear;
   cursor: ${({ $clickable }) => ($clickable ? 'pointer' : 'default')};
 
-  @media ${devices.lg} {
+  @media ${devices.md} {
     width: 32%;
     height: 90%;
     transition: transform 1s linear;

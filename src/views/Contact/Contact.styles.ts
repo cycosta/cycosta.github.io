@@ -5,6 +5,7 @@ import { spacing, devices } from '../../tokens';
 export const StyledWrapper = styled.div`
   display: grid;
   grid-template-rows: 260px max-content;
+  height: calc(100vh - 96px);
 
   @media ${devices.md} {
     grid-template-rows: auto;
@@ -17,7 +18,10 @@ export const StyledWrapper = styled.div`
 export const StyledHeadline = styled.div`
   max-width: 200px;
   justify-self: baseline;
-  z-index: 1;
+
+  @media ${devices.md} {
+    max-width: unset;
+  }
 `;
 
 export const StyledImageContainer = styled.div`
@@ -34,8 +38,8 @@ export const StyledImage = styled.img`
   object-fit: cover;
 
   @media ${devices.md} {
-    width: 100%;
-    height: 530px;
+    width: 480px;
+    height: 630px;
   }
 `;
 
