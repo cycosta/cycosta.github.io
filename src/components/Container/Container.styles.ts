@@ -9,17 +9,25 @@ const setPadding = (padding: Padding) => {
     [Padding.NONE]: `
       padding: 0;
     `,
+    [Padding.DEFAULT]: `
+      padding-right: ${spacing.xsmall};
+      padding-left: ${spacing.xsmall};
+      padding-bottom: ${spacing.xlarge};
+
+      @media ${devices.md} {
+        padding-right: ${spacing.xxlarge};
+        padding-left: ${spacing.xxlarge};
+        padding-bottom: ${spacing.xxlarge};
+      }
+    `,
     [Padding.FULL]: `
       padding-top: ${spacing.xlarge};
       padding-right: ${spacing.xsmall};
       padding-left: ${spacing.xsmall};
       padding-bottom: ${spacing.xlarge};
 
-      @media ${devices.lg} {
-        padding-top: ${spacing.huge};
-        padding-right: ${spacing.xxlarge};
-        padding-left: ${spacing.xxlarge};
-        padding-bottom: ${spacing.huge};
+      @media ${devices.md} {
+        padding: ${spacing.xxlarge};
       }
     `,
     [Padding.VERTICAL]: `
@@ -30,7 +38,7 @@ const setPadding = (padding: Padding) => {
       padding-right: ${spacing.xsmall};
       padding-left: ${spacing.xsmall};
 
-      @media ${devices.lg} {
+      @media ${devices.md} {
         padding-right: ${spacing.xxlarge};
         padding-left: ${spacing.xxlarge};
       }
@@ -44,15 +52,10 @@ export const StyledContainer = styled.section<{
   $width?: string;
   $height?: string;
   $backgroundColor?: string;
-  $fullScreen?: boolean;
   $padding?: Padding;
 }>`
-  width: ${({ $width, $fullScreen }) =>
-    $fullScreen ? '100vw' : $width || '100%'};
-  height: ${({ $height, $fullScreen }) =>
-    $fullScreen ? '100vh' : $height || '100%'};
   background-color: ${({ $backgroundColor }) =>
     $backgroundColor || colors.neutral.offWhite};
   ${({ $padding }) =>
-    $padding ? setPadding($padding) : setPadding(Padding.FULL)};
+    $padding ? setPadding($padding) : setPadding(Padding.DEFAULT)};
 `;

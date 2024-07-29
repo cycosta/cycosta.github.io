@@ -10,15 +10,15 @@ export const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 ${spacing.xsmall};
+  margin-bottom: ${spacing.xxlarge};
+  padding: ${spacing.medium} ${spacing.xsmall} 0;
   background-color: transparent;
   width: 100%;
-  height: 80px;
-  z-index: 1;
+  z-index: 2;
 
-  @media ${devices.lg} {
-    padding: ${spacing.medium} ${spacing.xxlarge};
-    height: auto;
+  @media ${devices.md} {
+    margin-bottom: ${spacing.xxlarge};
+    padding: ${spacing.xxlarge} ${spacing.xxlarge} 0;
   }
 `;
 
@@ -27,7 +27,7 @@ export const StyledToggle = styled.div`
   align-items: center;
   gap: ${spacing.xxsmall};
 
-  @media ${devices.lg} {
+  @media ${devices.md} {
     display: none;
   }
 `;
@@ -37,15 +37,15 @@ export const StyledMenu = styled.div<{ $visible: boolean }>`
   top: 0;
   left: 0;
   background-color: ${colors.neutral.offWhite};
-  padding: 0 ${spacing.small};
+  padding: ${spacing.medium} ${spacing.xsmall} 0;
   width: 100vw;
   height: ${({ $visible }) => ($visible ? '100vh' : 0)};
-  z-index: 1;
+  z-index: 2;
   transform: scaleY(${({ $visible }) => ($visible ? 1 : 0)});
   transform-origin: top;
   transition: all 0.3s ease-in-out;
 
-  @media ${devices.lg} {
+  @media ${devices.md} {
     position: static;
     background-color: transparent;
     padding: 0;
@@ -58,7 +58,11 @@ export const StyledNav = styled.nav`
   position: relative;
   display: flex;
   align-items: center;
-  height: 80px;
+  height: 24px;
+
+  @media ${devices.md} {
+    height: auto;
+  }
 `;
 
 export const StyledCloseButton = styled.button<{ $visible: boolean }>`
@@ -83,7 +87,7 @@ export const StyledCloseButton = styled.button<{ $visible: boolean }>`
     transform: rotate(-90deg);
   }
 
-  @media ${devices.lg} {
+  @media ${devices.md} {
     display: none;
   }
 `;
@@ -96,7 +100,7 @@ export const StyledList = styled.ul`
   width: 100%;
   list-style: none;
 
-  @media ${devices.lg} {
+  @media ${devices.md} {
     position: static;
     display: flex;
     gap: ${spacing.small};
@@ -114,7 +118,8 @@ export const StyledListItem = styled.li`
     border-bottom: none;
   }
 
-  @media ${devices.lg} {
+  @media ${devices.md} {
+    padding: 0;
     border-bottom: none;
     font-family: 'FleuronRegular';
     font-size: 16px;
@@ -128,7 +133,7 @@ export const StyledLink = styled(HashLink)<{ $light?: boolean }>`
   text-decoration: none;
   color: ${colors.primary.green.dark};
 
-  @media ${devices.lg} {
+  @media ${devices.md} {
     transition: color 0.3s ease;
     color: ${({ $light }) =>
       $light ? colors.neutral.white : colors.neutral.gray.default};

@@ -11,7 +11,6 @@ export const Container = ({
   width,
   height,
   backgroundColor,
-  fullScreen,
   children,
   padding,
 }: ContainerProps) => {
@@ -33,7 +32,6 @@ export const Container = ({
       $width={width}
       $height={height}
       $backgroundColor={backgroundColor}
-      $fullScreen={fullScreen}
       $padding={padding}
     >
       {children}

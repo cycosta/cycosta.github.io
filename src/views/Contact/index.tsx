@@ -11,6 +11,7 @@ import {
   StyledListContainer,
 } from './Contact.styles';
 import { contactData } from '../../data';
+import { Padding } from '../../components/Container/Container.types';
 
 export const Contact = () => {
   const images = [
@@ -40,7 +41,11 @@ export const Contact = () => {
   }, [image]);
 
   return (
-    <Container id="contact" backgroundColor={colors.primary.green.dark}>
+    <Container
+      id="contact"
+      backgroundColor={colors.primary.green.dark}
+      padding={Padding.FULL}
+    >
       <StyledWrapper>
         <StyledHeadline>
           <Typography

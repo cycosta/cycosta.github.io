@@ -23,7 +23,7 @@ export const Header = () => {
   const { isMobile } = useDevice();
 
   const listItems: { label: string; anchor: string; dark: boolean }[] = [
-    { label: "Hi, I'm", anchor: '#about', dark: false },
+    { label: "Hi, I'm", anchor: '#', dark: false },
     { label: 'Work', anchor: '#work', dark: true },
     { label: 'Side Projects', anchor: '#projects', dark: false },
     { label: 'People are saying', anchor: '#featured', dark: false },
