@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { colors, devices, spacing } from '../../tokens';
@@ -13,23 +14,25 @@ const backgroundColors = [
 
 export const StyledGalleryContainer = styled.div`
   position: relative;
-  height: 100vh;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  gap: ${spacing.hxxsmall};
   padding: 0 ${spacing.xsmall} 0;
   overflow-x: hidden;
 
   @media ${devices.md} {
-    gap: ${spacing.hxxsmall};
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     padding: ${spacing.huge} ${spacing.xxlarge} ${spacing.huge};
+    height: 100vh;
   }
 `;
 
-export const StyledGalleryItem = styled.div<{
+export const StyledGalleryItem = styled(Link)<{
   $index: number;
   $current: number;
-  $clickable: boolean;
 }>`
   display: flex;
   flex: 0 0 auto;
@@ -38,10 +41,8 @@ export const StyledGalleryItem = styled.div<{
   transform: translateX(-${({ $current }) => $current * 100}%);
   background-color: ${({ $index }) =>
     backgroundColors[$index % backgroundColors.length]};
-  width: calc(100vw - ${spacing.medium});
-  height: 500px;
+  width: calc(50vw - ${spacing.small});
   transition: transform 0.5s linear;
-  cursor: ${({ $clickable }) => ($clickable ? 'pointer' : 'default')};
 
   @media ${devices.md} {
     width: 32%;
@@ -50,8 +51,8 @@ export const StyledGalleryItem = styled.div<{
   }
 `;
 
-export const StyledGalleryImage = styled.img`
-  max-width: 70%;
-  max-height: 70%;
+export const StyledGalleryImage = styled.video`
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 `;
