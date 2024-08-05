@@ -26,7 +26,7 @@ describe('<Intro />', () => {
 
     expect(
       screen.getByText(
-        /front-end engineer passionate about design systems and product development\./i,
+        /experienced front-end software engineer with a strong background in product development\./i,
       ),
     ).toBeInTheDocument();
 
