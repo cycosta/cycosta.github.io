@@ -1,38 +1,26 @@
-export const projectsData: { image: string; url: string }[] = [
+export const projectsData: { src: string; url: string }[] = [
   {
-    image: '',
-    url: '',
+    src: '/src/assets/images/projects/orbiting-spheres.webm',
+    url: 'https://codepen.io/cycosta/pen/MWebyex',
   },
   {
-    image: '',
-    url: '',
+    src: '/src/assets/images/projects/article-card.webm',
+    url: 'https://codepen.io/cycosta/pen/ZEQXvJW',
   },
   {
-    image: '',
-    url: '',
+    src: '/src/assets/images/projects/login-sign-up.webm',
+    url: 'https://codepen.io/cycosta/pen/GRoePzE?editors=1100',
   },
   {
-    image: '',
-    url: '',
+    src: '/src/assets/images/projects/letterboxd-loading.webm',
+    url: 'https://codepen.io/cycosta/pen/Pogepzw',
   },
   {
-    image: '',
-    url: '',
+    src: '/src/assets/images/projects/animated-solar-system.webm',
+    url: 'https://codepen.io/cycosta/pen/OJMebrQ',
   },
   {
-    image: '',
-    url: '',
-  },
-  {
-    image: '',
-    url: '',
-  },
-  {
-    image: '',
-    url: '',
-  },
-  {
-    image: '',
-    url: '',
+    src: '/src/assets/images/projects/big-white-cloud.webm',
+    url: 'https://cycosta.dev/bigwhitecloud',
   },
 ];

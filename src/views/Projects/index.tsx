@@ -40,22 +40,18 @@ export const Projects = () => {
     return null;
   };
 
-  const isClickable = (index: number) => {
-    return index === currentIndex + 3 || index === currentIndex - 1;
-  };
-
   return (
     <Container id="projects" padding={Padding.VERTICAL}>
       <StyledGalleryContainer>
         {projectsData.map((project, index) => (
           <StyledGalleryItem
+            to={project.url}
             key={index}
             onMouseOver={() => handleOnClick(index)}
             $index={index}
             $current={currentIndex}
-            $clickable={isClickable(index)}
           >
-            <StyledGalleryImage src={project.image} />
+            <StyledGalleryImage src={project.src} autoPlay muted loop />
           </StyledGalleryItem>
         ))}
       </StyledGalleryContainer>
