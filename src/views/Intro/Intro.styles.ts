@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div`
   display: grid;
   grid-template-rows: 260px max-content;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     grid-template-rows: auto;
     grid-template-columns: 1fr 2fr 1fr;
     gap: ${spacing.hxxsmall};
@@ -23,7 +23,7 @@ export const StyledHeadline = styled.div`
 export const StyledImageContainer = styled.div`
   justify-self: end;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     justify-self: center;
   }
 `;
@@ -33,7 +33,7 @@ export const StyledImage = styled.img`
   height: 340px;
   object-fit: cover;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     width: 100%;
     height: 530px;
   }
@@ -50,7 +50,7 @@ export const StyledContent = styled.div`
   gap: ${spacing.large};
   padding: ${spacing.xlarge} 0;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     gap: 200px;
     padding: 0;
   }

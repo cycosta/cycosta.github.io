@@ -19,12 +19,14 @@ export const StyledGalleryContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: ${spacing.hxxsmall};
+  margin-top: ${spacing.medium};
   padding: 0 ${spacing.xsmall} 0;
   overflow-x: hidden;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     flex-wrap: nowrap;
     justify-content: flex-start;
+    margin-top: 0;
     padding: ${spacing.huge} ${spacing.xxlarge} ${spacing.huge};
     height: 100vh;
   }
@@ -44,7 +46,7 @@ export const StyledGalleryItem = styled(Link)<{
   width: calc(50vw - ${spacing.small});
   transition: transform 0.5s linear;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     width: 32%;
     height: 90%;
     transition: transform 1s linear;
