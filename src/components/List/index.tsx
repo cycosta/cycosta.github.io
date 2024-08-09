@@ -20,8 +20,6 @@ export const List = ({ light = false, items }: ListProps) => {
     threshold: 0,
   });
 
-  console.log(inViewport);
-
   return (
     <StyledList ref={targetRef}>
       {items.map((item, index) => (
