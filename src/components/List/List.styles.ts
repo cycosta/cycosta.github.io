@@ -1,6 +1,12 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import { colors, devices, spacing } from '../../tokens';
+
+const fadeIn = keyframes`
+  to {
+    opacity: 1;
+  }
+`;
 
 export const StyledList = styled.ul`
   margin: 0;
@@ -8,11 +14,22 @@ export const StyledList = styled.ul`
   list-style: none;
 `;
 
-export const StyledListItem = styled.li<{ $light: boolean }>`
+export const StyledListItem = styled.li<{
+  $light: boolean;
+  $index: number;
+  $inView: boolean;
+}>`
   position: relative;
   padding: ${spacing.medium} 0;
   border-bottom: ${({ $light }) =>
     `1px solid ${$light ? colors.neutral.offWhite : colors.primary.green.dark}`};
+  opacity: 0;
+  animation: ${({ $inView }) =>
+    $inView &&
+    css`
+      ${fadeIn} 0.3s ease-in forwards
+    `};
+  animation-delay: ${({ $index }) => $index * 0.1}s;
 
   &:last-child {
     border-bottom: none;
