@@ -22,7 +22,7 @@ export const useInViewport = (
         observer.unobserve(currentRef);
       }
     };
-  }, [options, ref]);
+  }, [options, ref, inViewport]);
 
   return inViewport;
 };

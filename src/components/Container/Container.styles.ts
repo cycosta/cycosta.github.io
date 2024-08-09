@@ -14,7 +14,7 @@ const setPadding = (padding: Padding) => {
       padding-left: ${spacing.xsmall};
       padding-bottom: ${spacing.xlarge};
 
-      @media ${devices.md} {
+      @media ${devices.lg} {
         padding-right: ${spacing.xxlarge};
         padding-left: ${spacing.xxlarge};
         padding-bottom: ${spacing.xxlarge};
@@ -26,7 +26,7 @@ const setPadding = (padding: Padding) => {
       padding-left: ${spacing.xsmall};
       padding-bottom: ${spacing.xlarge};
 
-      @media ${devices.md} {
+      @media ${devices.lg} {
         padding: ${spacing.xxlarge};
       }
     `,
@@ -38,7 +38,27 @@ const setPadding = (padding: Padding) => {
       padding-right: ${spacing.xsmall};
       padding-left: ${spacing.xsmall};
 
-      @media ${devices.md} {
+      @media ${devices.lg} {
+        padding-right: ${spacing.xxlarge};
+        padding-left: ${spacing.xxlarge};
+      }
+    `,
+    [Padding.TOP]: `
+      padding-top: ${spacing.xxlarge};
+      padding-right: ${spacing.xsmall};
+      padding-left: ${spacing.xsmall};
+
+      @media ${devices.lg} {
+        padding-right: ${spacing.xxlarge};
+        padding-left: ${spacing.xxlarge};
+      }
+    `,
+    [Padding.BOTTOM]: `
+      padding-bottom: ${spacing.xxlarge};
+      padding-right: ${spacing.xsmall};
+      padding-left: ${spacing.xsmall};
+
+      @media ${devices.lg} {
         padding-right: ${spacing.xxlarge};
         padding-left: ${spacing.xxlarge};
       }
@@ -58,4 +78,6 @@ export const StyledContainer = styled.section<{
     $backgroundColor || colors.neutral.offWhite};
   ${({ $padding }) =>
     $padding ? setPadding($padding) : setPadding(Padding.DEFAULT)};
+  width: ${({ $width }) => $width || 'auto'};
+  height: ${({ $height }) => $height || 'auto'};
 `;

@@ -4,14 +4,16 @@ import { spacing, devices } from '../../tokens';
 
 export const StyledWrapper = styled.div`
   display: grid;
-  grid-template-rows: 260px max-content;
-  height: calc(100vh - 96px);
+  grid-template-rows: 260px max-content min-content;
+  margin-top: ${spacing.medium};
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     grid-template-rows: auto;
     grid-template-columns: 1fr 2fr 1fr;
     gap: ${spacing.hxxsmall};
     align-items: end;
+    margin-top: 0;
+    height: calc(100vh - ${spacing.xxlarge});
   }
 `;
 
@@ -19,7 +21,7 @@ export const StyledHeadline = styled.div`
   max-width: 200px;
   justify-self: baseline;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     max-width: unset;
   }
 `;
@@ -27,7 +29,7 @@ export const StyledHeadline = styled.div`
 export const StyledImageContainer = styled.div`
   justify-self: end;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     justify-self: center;
   }
 `;
@@ -37,7 +39,7 @@ export const StyledImage = styled.img`
   height: 350px;
   object-fit: cover;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     width: 480px;
     height: 630px;
   }

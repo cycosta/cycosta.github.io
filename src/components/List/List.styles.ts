@@ -31,7 +31,7 @@ export const StyledLink = styled.a<{ $light: boolean }>`
   color: ${({ $light }) =>
     $light ? colors.neutral.offWhite : colors.primary.green.dark};
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     grid-gap: ${spacing.xsmall};
     font-size: 32px;
     line-height: 42px;

@@ -4,6 +4,8 @@ export enum Padding {
   FULL = 'FULL',
   VERTICAL = 'VERTICAL',
   HORIZONTAL = 'HORIZONTAL',
+  TOP = 'TOP',
+  BOTTOM = 'BOTTOM',
 }
 
 export interface ContainerProps {

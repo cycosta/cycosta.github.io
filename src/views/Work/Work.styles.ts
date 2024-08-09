@@ -39,7 +39,7 @@ export const StyledCarouselTitle = styled.div<{
   text-align: center;
   cursor: pointer;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     grid-template-columns: ${spacing.large} 1fr ${spacing.large};
   }
 
@@ -78,7 +78,7 @@ export const StyledCarouselContent = styled.div`
   justify-content: space-between;
   padding: ${spacing.small} ${spacing.xsmall} 0;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     padding: ${spacing.small} ${spacing.xxlarge} 0;
   }
 `;
