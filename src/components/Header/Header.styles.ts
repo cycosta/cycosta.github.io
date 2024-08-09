@@ -16,7 +16,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   z-index: 2;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     margin-bottom: ${spacing.xxlarge};
     padding: ${spacing.xxlarge} ${spacing.xxlarge} 0;
   }
@@ -27,7 +27,7 @@ export const StyledToggle = styled.div`
   align-items: center;
   gap: ${spacing.xxsmall};
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     display: none;
   }
 `;
@@ -45,7 +45,7 @@ export const StyledMenu = styled.div<{ $visible: boolean }>`
   transform-origin: top;
   transition: all 0.3s ease-in-out;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     position: static;
     background-color: transparent;
     padding: 0;
@@ -60,7 +60,7 @@ export const StyledNav = styled.nav`
   align-items: center;
   height: 24px;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     height: auto;
   }
 `;
@@ -87,7 +87,7 @@ export const StyledCloseButton = styled.button<{ $visible: boolean }>`
     transform: rotate(-90deg);
   }
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     display: none;
   }
 `;
@@ -100,7 +100,7 @@ export const StyledList = styled.ul`
   width: 100%;
   list-style: none;
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     position: static;
     display: flex;
     gap: ${spacing.small};
@@ -118,7 +118,7 @@ export const StyledListItem = styled.li`
     border-bottom: none;
   }
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     padding: 0;
     border-bottom: none;
     font-family: 'FleuronRegular';
@@ -133,7 +133,7 @@ export const StyledLink = styled(HashLink)<{ $light?: boolean }>`
   text-decoration: none;
   color: ${colors.primary.green.dark};
 
-  @media ${devices.md} {
+  @media ${devices.lg} {
     transition: color 0.3s ease;
     color: ${({ $light }) =>
       $light ? colors.neutral.white : colors.neutral.gray.default};

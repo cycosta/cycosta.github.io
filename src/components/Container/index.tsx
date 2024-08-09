@@ -5,6 +5,7 @@ import { useInViewport } from '../../hooks';
 
 import { StyledContainer } from './Container.styles';
 import { ContainerProps } from './Container.types';
+import { spacing } from '../../tokens';
 
 export const Container = ({
   id,
@@ -17,7 +18,10 @@ export const Container = ({
   const navigate = useNavigate();
 
   const targetRef = useRef(null);
-  const inViewport = useInViewport(targetRef, { threshold: 0.2 });
+  const inViewport = useInViewport(targetRef, {
+    threshold: 0.5,
+    rootMargin: spacing.xxlarge,
+  });
 
   useEffect(() => {
     if (inViewport) {

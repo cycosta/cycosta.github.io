@@ -16,7 +16,7 @@ export const useDevice = () => {
     return () => {
       window.removeEventListener('resize', handleDeviceDetection);
     };
-  }, []);
+  }, [width]);
 
   const isMobile = width <= sizes.sm;
   const isMediumUp = width > sizes.sm;
