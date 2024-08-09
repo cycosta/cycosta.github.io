@@ -59,7 +59,7 @@ export const Header = () => {
           />
           <StyledList>
             {listItems.map((item, index) => (
-              <StyledListItem key={index}>
+              <StyledListItem key={index} $index={index}>
                 <StyledLink
                   to={item.anchor}
                   smooth

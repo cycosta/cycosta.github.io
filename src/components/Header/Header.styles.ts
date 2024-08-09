@@ -1,7 +1,13 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { HashLink } from 'react-router-hash-link';
 
 import { colors, devices, spacing } from '../../tokens';
+
+const fadeIn = keyframes`
+  to {
+    opacity: 1;
+  }
+`;
 
 export const StyledHeader = styled.header`
   position: sticky;
@@ -107,7 +113,7 @@ export const StyledList = styled.ul`
   }
 `;
 
-export const StyledListItem = styled.li`
+export const StyledListItem = styled.li<{ $index: number }>`
   position: relative;
   padding: ${spacing.medium} 0;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
@@ -123,6 +129,9 @@ export const StyledListItem = styled.li`
     border-bottom: none;
     font-family: 'FleuronRegular';
     font-size: 16px;
+    opacity: 0;
+    animation: ${fadeIn} 0.3s ease-in forwards;
+    animation-delay: ${({ $index }) => $index * 0.1}s;
   }
 `;
 

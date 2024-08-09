@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react';
-import { Container, Typography, List } from '../../components';
+import { Container, List, Typography } from '../../components';
+import { Padding } from '../../components/Container/Container.types';
 import { TypographyLevel } from '../../components/Typography/Typography.types';
+import { contactData } from '../../data';
+import { useDevice } from '../../hooks';
 import { colors } from '../../tokens';
 
 import {
-  StyledWrapper,
   StyledHeadline,
-  StyledImageContainer,
   StyledImage,
+  StyledImageContainer,
   StyledListContainer,
+  StyledWrapper,
 } from './Contact.styles';
-import { contactData } from '../../data';
-import { Padding } from '../../components/Container/Container.types';
 
 export const Contact = () => {
+  const { isMobile } = useDevice();
+
   const images = [
     { src: 'src/assets/images/photography/cycosta-1.jpg' },
     { src: 'src/assets/images/photography/cycosta-2.jpg' },
@@ -44,7 +47,7 @@ export const Contact = () => {
     <Container
       id="contact"
       backgroundColor={colors.primary.green.dark}
-      padding={Padding.FULL}
+      padding={isMobile ? Padding.FULL : Padding.BOTTOM}
     >
       <StyledWrapper>
         <StyledHeadline>
