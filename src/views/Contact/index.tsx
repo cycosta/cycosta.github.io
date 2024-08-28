@@ -1,13 +1,11 @@
-import { useEffect, useState } from 'react';
-import { Container, List, Typography } from '../../components';
+import { useEffect, useRef, useState } from 'react';
+import { Container, Headline, List } from '../../components';
 import { Padding } from '../../components/Container/Container.types';
-import { TypographyLevel } from '../../components/Typography/Typography.types';
 import { contactData } from '../../data';
-import { useDevice } from '../../hooks';
+import { useDevice, useInViewport } from '../../hooks';
 import { colors } from '../../tokens';
 
 import {
-  StyledHeadline,
   StyledImage,
   StyledImageContainer,
   StyledListContainer,
@@ -16,6 +14,12 @@ import {
 
 export const Contact = () => {
   const { isMobile } = useDevice();
+
+  const targetRef = useRef(null);
+
+  const inViewport = useInViewport(targetRef, {
+    threshold: 0,
+  });
 
   const images = [
     { src: 'src/assets/images/photography/cycosta-1.jpg' },
@@ -49,15 +53,8 @@ export const Contact = () => {
       backgroundColor={colors.primary.green.dark}
       padding={isMobile ? Padding.FULL : Padding.BOTTOM}
     >
-      <StyledWrapper>
-        <StyledHeadline>
-          <Typography
-            level={TypographyLevel.HEADLINE}
-            color={colors.neutral.offWhite}
-          >
-            Let's talk
-          </Typography>
-        </StyledHeadline>
+      <StyledWrapper ref={targetRef}>
+        {inViewport && <Headline paragraphs={[`Let's`, 'talk']} light />}
         <StyledImageContainer>
           <StyledImage src={images[image].src} />
         </StyledImageContainer>

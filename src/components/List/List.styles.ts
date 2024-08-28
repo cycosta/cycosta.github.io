@@ -22,7 +22,7 @@ export const StyledListItem = styled.li<{
   position: relative;
   padding: ${spacing.medium} 0;
   border-bottom: ${({ $light }) =>
-    `1px solid ${$light ? colors.neutral.offWhite : colors.primary.green.dark}`};
+    `1px solid ${$light ? `rgba(255, 255, 255, 0.2)` : `rgba(1, 1, 1, 0.1)`}`};
   opacity: 0;
   animation: ${({ $inView }) =>
     $inView &&

@@ -2,6 +2,7 @@ export { Arrow } from './Arrow';
 export { Button } from './Button';
 export { Container } from './Container';
 export { Header } from './Header';
+export { Headline } from './Headline';
 export { Icon } from './Icon';
 export { List } from './List';
 export { Logo } from './Logo';

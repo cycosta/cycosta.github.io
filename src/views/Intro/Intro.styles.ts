@@ -1,6 +1,16 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { devices, spacing } from '../../tokens';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
 
 export const StyledWrapper = styled.div`
   display: grid;
@@ -14,14 +24,10 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const StyledHeadline = styled.div`
-  max-width: 200px;
-  justify-self: baseline;
-  z-index: 1;
-`;
-
 export const StyledImageContainer = styled.div`
   justify-self: end;
+  opacity: 0;
+  animation: 1s ${fadeIn} 1s ease forwards;
 
   @media ${devices.lg} {
     justify-self: center;
@@ -49,6 +55,8 @@ export const StyledContent = styled.div`
   flex-direction: column;
   gap: ${spacing.large};
   padding: ${spacing.xlarge} 0;
+  opacity: 0;
+  animation: 1s ${fadeIn} 1s ease forwards;
 
   @media ${devices.lg} {
     gap: 200px;
@@ -61,4 +69,6 @@ export const StyledSkillsList = styled.ul`
   flex-wrap: wrap;
   gap: ${spacing.hxxsmall} ${spacing.xxsmall};
   list-style-type: none;
+  opacity: 0;
+  animation: 1s ${fadeIn} 1s ease forwards;
 `;

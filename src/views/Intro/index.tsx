@@ -1,11 +1,10 @@
-import { Container, Typography } from '../../components';
+import { Container, Headline, Typography } from '../../components';
 import { TypographyLevel } from '../../components/Typography/Typography.types';
-import { skillsData } from '../../data/skillsData';
+import { skillsData } from '../../data';
 import { colors } from '../../tokens';
 
 import {
   StyledWrapper,
-  StyledHeadline,
   StyledImageContainer,
   StyledImage,
   StyledContent,
@@ -15,14 +14,7 @@ import {
 export const Intro = () => (
   <Container id="about">
     <StyledWrapper>
-      <StyledHeadline>
-        <Typography
-          level={TypographyLevel.HEADLINE}
-          color={colors.primary.green.dark}
-        >
-          Cynthia Costa
-        </Typography>
-      </StyledHeadline>
+      <Headline paragraphs={['Cynthia', 'Costa']} />
       <StyledImageContainer>
         <StyledImage src="src/assets/images/cycosta.jpg" alt="Cynthia Costa" />
       </StyledImageContainer>
