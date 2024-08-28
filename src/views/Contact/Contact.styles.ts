@@ -17,16 +17,6 @@ export const StyledWrapper = styled.div`
   }
 `;
 
-export const StyledHeadline = styled.div`
-  max-width: 200px;
-  justify-self: baseline;
-  z-index: 1;
-
-  @media ${devices.lg} {
-    max-width: unset;
-  }
-`;
-
 export const StyledImageContainer = styled.div`
   justify-self: end;
 
