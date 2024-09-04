@@ -22,16 +22,16 @@ export const Contact = () => {
   });
 
   const images = [
-    { src: './src/assets/images/photography/cycosta-1.jpg' },
-    { src: './src/assets/images/photography/cycosta-2.jpg' },
-    { src: './src/assets/images/photography/cycosta-3.jpg' },
-    { src: './src/assets/images/photography/cycosta-4.jpg' },
-    { src: './src/assets/images/photography/cycosta-5.jpg' },
-    { src: './src/assets/images/photography/cycosta-6.jpg' },
-    { src: './src/assets/images/photography/cycosta-7.jpg' },
-    { src: './src/assets/images/photography/cycosta-8.jpg' },
-    { src: './src/assets/images/photography/cycosta-9.jpg' },
-    { src: './src/assets/images/photography/cycosta-10.jpg' },
+    { src: 'images/photography/cycosta-1.jpg' },
+    { src: 'images/photography/cycosta-2.jpg' },
+    { src: 'images/photography/cycosta-3.jpg' },
+    { src: 'images/photography/cycosta-4.jpg' },
+    { src: 'images/photography/cycosta-5.jpg' },
+    { src: 'images/photography/cycosta-6.jpg' },
+    { src: 'images/photography/cycosta-7.jpg' },
+    { src: 'images/photography/cycosta-8.jpg' },
+    { src: 'images/photography/cycosta-9.jpg' },
+    { src: 'images/photography/cycosta-10.jpg' },
   ];
 
   const [image, setImage] = useState(0);
