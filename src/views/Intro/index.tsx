@@ -16,7 +16,10 @@ export const Intro = () => (
     <StyledWrapper>
       <Headline paragraphs={['Cynthia', 'Costa']} />
       <StyledImageContainer>
-        <StyledImage src="src/assets/images/cycosta.jpg" alt="Cynthia Costa" />
+        <StyledImage
+          src="./src/assets/images/cycosta.jpg"
+          alt="Cynthia Costa"
+        />
       </StyledImageContainer>
       <StyledContent>
         <Typography
