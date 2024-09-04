@@ -18,9 +18,14 @@ export const StyledWrapper = styled.div`
 
   @media ${devices.lg} {
     grid-template-rows: auto;
+    grid-template-columns: max-content 2fr 1fr;
+    gap: ${spacing.xxsmall};
+    align-items: end;
+  }
+
+  @media ${devices.xl} {
     grid-template-columns: 1fr 2fr 1fr;
     gap: ${spacing.hxxsmall};
-    align-items: end;
   }
 `;
 
@@ -59,8 +64,14 @@ export const StyledContent = styled.div`
   animation: 1s ${fadeIn} 1s ease forwards;
 
   @media ${devices.lg} {
-    gap: 200px;
+    justify-content: space-between;
+    gap: 0;
     padding: 0;
+    height: 345px;
+  }
+
+  @media ${devices.xl} {
+    height: 420px;
   }
 `;
 
