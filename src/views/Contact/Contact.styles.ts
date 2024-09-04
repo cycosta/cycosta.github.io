@@ -9,11 +9,16 @@ export const StyledWrapper = styled.div`
 
   @media ${devices.lg} {
     grid-template-rows: auto;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: ${spacing.hxxsmall};
+    grid-template-columns: max-content 2fr 1fr;
+    gap: ${spacing.xxsmall};
     align-items: end;
     margin-top: 0;
     height: calc(100vh - ${spacing.xxlarge});
+  }
+
+  @media ${devices.xl} {
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: ${spacing.hxxsmall};
   }
 `;
 
@@ -31,8 +36,13 @@ export const StyledImage = styled.img`
   object-fit: cover;
 
   @media ${devices.lg} {
+    width: 100%;
+    height: 540px;
+  }
+
+  @media ${devices.xl} {
     width: 480px;
-    height: 630px;
+    height: 640px;
   }
 `;
 
