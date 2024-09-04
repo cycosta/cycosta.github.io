@@ -7,10 +7,12 @@ import { Featured } from '..';
 describe('<Featured />', () => {
   const renderComponent = () => render(<Featured />);
 
-  it('should render component with featured list', () => {
+  it('should render component with initial featured list', () => {
     renderComponent();
 
-    featuredData.forEach((item) => {
+    const visibleList = featuredData.slice(0, 5);
+
+    visibleList.forEach((item) => {
       expect(screen.getByText(item.title)).toBeInTheDocument();
     });
   });
