@@ -151,7 +151,9 @@ export const StyledButton = styled.div<{
   $variant: ButtonVariant;
   $size: string;
   $light: boolean;
+  $fullWidth?: boolean;
 }>`
+  width: ${({ $fullWidth }) => ($fullWidth ? '100%' : 'auto')};
   font-family: 'FleuronRegular';
   font-size: ${({ $size }) => ($size === 'large' ? '18px' : '14px')};
   transition: all 0.3s ease;

@@ -16,7 +16,7 @@ describe('<Work />', () => {
     expect(screen.getByText(/2021 — present/i)).toBeInTheDocument();
     expect(
       screen.getByText(
-        /brazil's largest proptech, where i contribute to enhancing the entire visits experience within a team of over 15 people\./i,
+        /quintoandar is the top of mind proptech in latam, where i contribute to maintaining and enhancing the entire property visits experience within a team of over 15 people\./i,
       ),
     ).toBeInTheDocument();
   });

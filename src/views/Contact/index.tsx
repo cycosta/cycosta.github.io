@@ -32,7 +32,6 @@ export const Contact = () => {
     { src: 'src/assets/images/photography/cycosta-8.jpg' },
     { src: 'src/assets/images/photography/cycosta-9.jpg' },
     { src: 'src/assets/images/photography/cycosta-10.jpg' },
-    { src: 'src/assets/images/photography/cycosta-11.jpg' },
   ];
 
   const [image, setImage] = useState(0);

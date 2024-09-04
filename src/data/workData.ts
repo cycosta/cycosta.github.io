@@ -10,20 +10,20 @@ export const workData: {
     name: 'QuintoAndar',
     brandColor: colors.brand.quintoAndar,
     date: '2021 — Present',
-    description: `Brazil's largest proptech, where I contribute to enhancing the entire visits experience within a team of over 15 people.`,
+    description: `QuintoAndar is the top of mind proptech in LATAM, where I contribute to maintaining and enhancing the entire property visits experience within a team of over 15 people.`,
   },
   {
     name: 'PicPay',
     brandColor: colors.brand.picpay,
     date: '2020 — 2021',
     description:
-      'A leading digital financial services company with over 35 million customers, where I contributed to the B2B team, developing solutions for client companies.',
+      'PicPay is a leading digital financial services company with over 35 million customers, where I contributed to the B2B team, developing solutions for client companies.',
   },
   {
     name: 'Webedia',
     brandColor: colors.brand.webedia,
     date: '2018 — 2020',
-    description: `TudoGostoso, Brazil's largest food recipe portal, where I played a key role in front-end development initiatives.`,
+    description: `TudoGostoso is Brazil's largest food recipe portal and part of Webedia's brand portfolio, where I played a key role in front-end development initiatives.`,
   },
   {
     name: 'Milk Music',

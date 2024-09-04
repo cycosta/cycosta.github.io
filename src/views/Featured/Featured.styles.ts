@@ -9,3 +9,7 @@ export const StyledWrapper = styled.div`
     margin-top: ${spacing.medium};
   }
 `;
+
+export const StyledBottomWrapper = styled.div`
+  margin-top: ${spacing.xsmall};
+`;
