@@ -2,6 +2,7 @@ export interface ButtonProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
   light?: boolean;
+  fullWidth?: boolean;
   disabled?: boolean;
   onClick?: () => void;
   children: React.ReactNode;

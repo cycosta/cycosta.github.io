@@ -1,7 +1,6 @@
 export interface ListProps {
   light?: boolean;
   items: ListItem[];
-  label?: string;
 }
 
 interface ListItem {

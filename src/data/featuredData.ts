@@ -59,4 +59,8 @@ export const featuredData: { title: string; url: string }[] = [
     title: '25+ CSS Blog Cards',
     url: 'https://freefrontend.com/css-blog-cards/',
   },
+  {
+    title: 'Explore 95 Remarkable CSS Animation Demos and Sources',
+    url: 'https://medium.com/@cssmonster007/explore-95-remarkable-css-animation-demos-and-sources-b828404d315b',
+  },
 ];
