@@ -9,7 +9,7 @@ import { useDevice } from '../../hooks';
 import {
   StyledGalleryContainer,
   StyledGalleryItem,
-  StyledGalleryImage,
+  StyledGalleryVideo,
 } from './Projects.styles';
 
 export const Projects = () => {
@@ -28,7 +28,7 @@ export const Projects = () => {
     );
   };
 
-  const handleOnClick = (index: number) => {
+  const handleOnHover = (index: number) => {
     const nextNumber = isLargeDesktop ? 2 : 1;
 
     if (index >= currentIndex + nextNumber) {
@@ -48,11 +48,11 @@ export const Projects = () => {
             href={project.url}
             target="_blank"
             key={index}
-            onMouseOver={() => handleOnClick(index)}
+            onMouseOver={() => handleOnHover(index)}
             $index={index}
             $current={currentIndex}
           >
-            <StyledGalleryImage src={project.src} autoPlay muted loop />
+            <StyledGalleryVideo src={project.src} muted loop autoPlay />
           </StyledGalleryItem>
         ))}
       </StyledGalleryContainer>

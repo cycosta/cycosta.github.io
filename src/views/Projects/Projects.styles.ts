@@ -52,7 +52,7 @@ export const StyledGalleryItem = styled.a<{
   }
 `;
 
-export const StyledGalleryImage = styled.video`
+export const StyledGalleryVideo = styled.video`
   width: 100%;
   height: 100%;
   object-fit: contain;
