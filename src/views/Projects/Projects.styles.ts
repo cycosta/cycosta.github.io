@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { colors, devices, spacing } from '../../tokens';
@@ -32,7 +31,7 @@ export const StyledGalleryContainer = styled.div`
   }
 `;
 
-export const StyledGalleryItem = styled(Link)<{
+export const StyledGalleryItem = styled.a<{
   $index: number;
   $current: number;
 }>`

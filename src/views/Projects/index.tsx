@@ -45,7 +45,7 @@ export const Projects = () => {
       <StyledGalleryContainer>
         {projectsData.map((project, index) => (
           <StyledGalleryItem
-            to={project.url}
+            href={project.url}
             target="_blank"
             key={index}
             onMouseOver={() => handleOnClick(index)}

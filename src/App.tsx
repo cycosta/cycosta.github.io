@@ -1,29 +1,26 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
 import './index.scss';
 
-import { Header } from './components';
+import { Header, Main } from './components';
 import { Contact, Featured, Intro, Projects, Work } from './views';
+import { useState } from 'react';
 
 function App() {
+  const [currentSection, setCurrentSection] = useState<string>('#intro');
+
   return (
-    <HashRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Intro />} />
-      </Routes>
-      <Routes>
-        <Route path="/" element={<Work />} />
-      </Routes>
-      <Routes>
-        <Route path="/" element={<Projects />} />
-      </Routes>
-      <Routes>
-        <Route path="/" element={<Featured />} />
-      </Routes>
-      <Routes>
-        <Route path="/" element={<Contact />} />
-      </Routes>
-    </HashRouter>
+    <>
+      <Header
+        currentSection={currentSection}
+        setCurrentSection={setCurrentSection}
+      />
+      <Main>
+        <Intro />
+        <Work />
+        <Projects />
+        <Featured />
+        <Contact />
+      </Main>
+    </>
   );
 }
 

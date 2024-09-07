@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { HashLink } from 'react-router-hash-link';
 
 import { colors, devices, spacing } from '../../tokens';
 
@@ -135,7 +134,7 @@ export const StyledListItem = styled.li<{ $index: number }>`
   }
 `;
 
-export const StyledLink = styled(HashLink)<{ $light?: boolean }>`
+export const StyledLink = styled.a<{ $light?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
