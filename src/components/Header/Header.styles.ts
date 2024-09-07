@@ -16,7 +16,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   margin-bottom: ${spacing.xxlarge};
-  padding: ${spacing.medium} ${spacing.xsmall} 0;
+  padding: ${spacing.small} ${spacing.xsmall} 0;
   background-color: transparent;
   width: 100%;
   z-index: 2;
