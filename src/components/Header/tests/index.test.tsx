@@ -3,11 +3,15 @@ import { render, screen } from '@testing-library/react';
 import { Header } from '..';
 
 describe('<Header />', () => {
-  const renderComponent = () => render(<Header />);
+  const mockProps = {
+    currentSection: 'about',
+    setCurrentSection: jest.fn(),
+  };
 
-  it.skip('should render component with default content', () => {
+  const renderComponent = () => render(<Header {...mockProps} />);
+
+  it('should render component with default content', () => {
     renderComponent();
-    screen.logTestingPlaygroundURL();
 
     expect(
       screen.getByRole('link', {
@@ -32,11 +36,6 @@ describe('<Header />', () => {
     expect(
       screen.getByRole('link', {
         name: /let's talk/i,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('button', {
-        name: /contact/i,
       }),
     ).toBeInTheDocument();
   });

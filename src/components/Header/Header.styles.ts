@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { HashLink } from 'react-router-hash-link';
 
 import { colors, devices, spacing } from '../../tokens';
 
@@ -17,7 +16,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   margin-bottom: ${spacing.xxlarge};
-  padding: ${spacing.medium} ${spacing.xsmall} 0;
+  padding: ${spacing.small} ${spacing.xsmall} 0;
   background-color: transparent;
   width: 100%;
   z-index: 2;
@@ -135,7 +134,7 @@ export const StyledListItem = styled.li<{ $index: number }>`
   }
 `;
 
-export const StyledLink = styled(HashLink)<{ $light?: boolean }>`
+export const StyledLink = styled.a<{ $light?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;

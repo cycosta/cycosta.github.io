@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { colors } from '../../tokens';
-import { useDevice } from '../../hooks';
+import { useDevice, useInViewport } from '../../hooks';
 import { workData } from '../../data';
 
 import { Container, Typography, ProgressBar } from '../../components';
@@ -20,10 +20,15 @@ import {
 export const Work = () => {
   const { isMobile, isDesktop } = useDevice();
 
+  const targetRef = useRef(null);
+  const inViewport = useInViewport(targetRef, {
+    threshold: 0.5,
+  });
+
   const [current, setCurrent] = useState(0);
   const [previous, setPrevious] = useState<number>(0);
   const [next, setNext] = useState<number>(0);
-  const [paused, setPaused] = useState(false);
+  const [paused, setPaused] = useState(true);
 
   const carouselLoop = () => {
     if (current === workData.length - 1) return setCurrent(0);
@@ -32,9 +37,15 @@ export const Work = () => {
   };
 
   useEffect(() => {
+    if (inViewport) {
+      setPaused(false);
+    }
+  }, [inViewport]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       paused ? null : carouselLoop();
-    }, 4000);
+    }, 3000);
 
     return () => clearInterval(interval);
   });
@@ -50,7 +61,7 @@ export const Work = () => {
       backgroundColor={workData[current].brandColor}
       padding={Padding.NONE}
     >
-      <StyledCarouselContainer>
+      <StyledCarouselContainer ref={targetRef}>
         {workData.map((job, index) => {
           const { name, date, description } = job;
 

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { colors, devices, spacing } from '../../tokens';
@@ -32,7 +31,7 @@ export const StyledGalleryContainer = styled.div`
   }
 `;
 
-export const StyledGalleryItem = styled(Link)<{
+export const StyledGalleryItem = styled.a<{
   $index: number;
   $current: number;
 }>`
@@ -53,7 +52,7 @@ export const StyledGalleryItem = styled(Link)<{
   }
 `;
 
-export const StyledGalleryImage = styled.video`
+export const StyledGalleryVideo = styled.video`
   width: 100%;
   height: 100%;
   object-fit: contain;

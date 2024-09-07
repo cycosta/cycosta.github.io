@@ -6,5 +6,6 @@ export { Headline } from './Headline';
 export { Icon } from './Icon';
 export { List } from './List';
 export { Logo } from './Logo';
+export { Main } from './Main';
 export { ProgressBar } from './ProgressBar';
 export { Typography } from './Typography';
