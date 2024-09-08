@@ -4,6 +4,7 @@ import { ProgressBarProps } from './ProgressBar.types';
 export const ProgressBar = ({
   numberOfItems,
   activeItem,
+  animationDuration,
 }: ProgressBarProps) => {
   return (
     <StyledProgressBar>
@@ -13,6 +14,7 @@ export const ProgressBar = ({
           $numberOfItems={numberOfItems}
           $active={index === activeItem}
           $past={index < activeItem}
+          $animationDuration={animationDuration}
         />
       ))}
     </StyledProgressBar>

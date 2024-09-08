@@ -45,7 +45,7 @@ export const Work = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       paused ? null : carouselLoop();
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
   });
@@ -118,7 +118,11 @@ export const Work = () => {
         })}
         {isMobile && (
           <StyledProgressContainer>
-            <ProgressBar numberOfItems={workData.length} activeItem={current} />
+            <ProgressBar
+              numberOfItems={workData.length}
+              activeItem={current}
+              animationDuration={4}
+            />
           </StyledProgressContainer>
         )}
       </StyledCarouselContainer>
