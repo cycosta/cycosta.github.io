@@ -23,6 +23,7 @@ export const StyledProgress = styled.div<{
   $numberOfItems: number;
   $active: boolean;
   $past?: boolean;
+  $animationDuration?: number;
 }>`
   background-color: rgba(255, 255, 255, 0.2);
   width: ${({ $numberOfItems }) => 100 / $numberOfItems}%;
@@ -36,10 +37,10 @@ export const StyledProgress = styled.div<{
     background-color: ${colors.neutral.white};
     transform: ${({ $past }) => ($past ? 'scaleX(1)' : 'scaleX(0)')};
     transform-origin: left;
-    animation: ${({ $active }) =>
+    animation: ${({ $active, $animationDuration }) =>
       $active &&
       css`
-        ${fill} 2s forwards
+        ${$animationDuration}s linear forwards ${fill}
       `};
   }
 `;
