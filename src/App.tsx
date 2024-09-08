@@ -2,17 +2,11 @@ import './index.scss';
 
 import { Header, Main } from './components';
 import { Contact, Featured, Intro, Projects, Work } from './views';
-import { useState } from 'react';
 
 function App() {
-  const [currentSection, setCurrentSection] = useState<string>('#intro');
-
   return (
     <>
-      <Header
-        currentSection={currentSection}
-        setCurrentSection={setCurrentSection}
-      />
+      <Header />
       <Main>
         <Intro />
         <Work />

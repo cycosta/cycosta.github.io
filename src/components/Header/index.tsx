@@ -17,35 +17,34 @@ import {
   StyledListItem,
   StyledLink,
 } from './Header.styles';
-import { HeaderProps } from './Header.types';
+import { Section } from './Header.types';
+import { listItems } from './constants';
 
-export const Header = ({ currentSection, setCurrentSection }: HeaderProps) => {
+export const Header = () => {
   const { isMobile } = useDevice();
 
-  const listItems: { label: string; anchor: string; dark: boolean }[] = [
-    { label: "Hi, I'm", anchor: '#about', dark: false },
-    { label: 'Work', anchor: '#work', dark: true },
-    { label: 'Side Projects', anchor: '#projects', dark: false },
-    { label: 'People are saying', anchor: '#featured', dark: false },
-    { label: "Let's talk", anchor: '#contact', dark: true },
-  ];
+  const [currentSection, setCurrentSection] = useState<Section>(listItems[0]);
 
   const currentSectionItem = listItems.find(
-    (item) => item.anchor === currentSection,
+    (item) => item.id === currentSection.id,
   );
+  console.log(currentSectionItem);
 
   const [navVisible, setNavVisible] = useState(false);
 
-  const light = listItems.find((item) => item.anchor === currentSection)?.dark;
+  const light = listItems.find((item) => item.id === currentSection.id)?.dark;
 
-  const handleItemClick = (anchor: string) => {
-    setCurrentSection(anchor);
+  const handleItemClick = (section: Section) => {
+    setCurrentSection(section);
     setNavVisible(false);
   };
 
   useEffect(() => {
-    window.addEventListener('hashchange', () => {
-      setCurrentSection(window.location.hash);
+    window.addEventListener('popstate', () => {
+      setCurrentSection(
+        listItems.find((item) => item.anchor === window.location.hash) ||
+          listItems[0],
+      );
     });
   }, [window]);
 
@@ -72,7 +71,7 @@ export const Header = ({ currentSection, setCurrentSection }: HeaderProps) => {
                 <StyledLink
                   href={item.anchor}
                   $light={light}
-                  onClick={() => handleItemClick(item.anchor)}
+                  onClick={() => handleItemClick(item)}
                   className={
                     currentSectionItem?.anchor === item.anchor ? 'active' : ''
                   }

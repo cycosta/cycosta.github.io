@@ -1,9 +1,7 @@
 import { useEffect, useRef } from 'react';
-
-import { useInViewport } from '../../hooks';
-
 import { StyledContainer } from './Container.styles';
 import { ContainerProps } from './Container.types';
+import { useInViewport } from '../../hooks';
 
 export const Container = ({
   id,
@@ -13,22 +11,24 @@ export const Container = ({
   children,
   padding,
 }: ContainerProps) => {
-  const targetRef = useRef(null);
-
-  const inViewport = useInViewport(targetRef, {
+  const containerRef = useRef(null);
+  const inViewport = useInViewport(containerRef, {
     threshold: 0.5,
   });
 
   useEffect(() => {
     if (inViewport) {
-      window.location.hash = id;
+      history.pushState(null, '', `#${id}`);
+
+      const stateEvent = new PopStateEvent('popstate');
+      window.dispatchEvent(stateEvent);
     }
   }, [inViewport]);
 
   return (
     <StyledContainer
       id={id}
-      ref={targetRef}
+      ref={containerRef}
       $width={width}
       $height={height}
       $backgroundColor={backgroundColor}

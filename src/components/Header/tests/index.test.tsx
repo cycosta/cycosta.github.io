@@ -3,12 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { Header } from '..';
 
 describe('<Header />', () => {
-  const mockProps = {
-    currentSection: 'about',
-    setCurrentSection: jest.fn(),
-  };
-
-  const renderComponent = () => render(<Header {...mockProps} />);
+  const renderComponent = () => render(<Header />);
 
   it('should render component with default content', () => {
     renderComponent();
