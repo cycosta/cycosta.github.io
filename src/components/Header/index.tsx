@@ -28,7 +28,6 @@ export const Header = () => {
   const currentSectionItem = listItems.find(
     (item) => item.id === currentSection.id,
   );
-  console.log(currentSectionItem);
 
   const [navVisible, setNavVisible] = useState(false);
 

@@ -5,6 +5,7 @@ import { Padding } from '../../components/Container/Container.types';
 
 import { projectsData } from '../../data';
 import { useDevice } from '../../hooks';
+import { trackProjectItemClicked } from '../../utils/eventTracking';
 
 import {
   StyledGalleryContainer,
@@ -51,6 +52,7 @@ export const Projects = () => {
             onMouseOver={() => handleOnHover(index)}
             $index={index}
             $current={currentIndex}
+            onClick={() => trackProjectItemClicked(project.url)}
           >
             <StyledGalleryVideo src={project.src} muted loop autoPlay />
           </StyledGalleryItem>

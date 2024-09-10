@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
+
 import { Container, Headline, List } from '../../components';
 import { Padding } from '../../components/Container/Container.types';
+
 import { contactData } from '../../data';
 import { useDevice, useInViewport } from '../../hooks';
 import { colors } from '../../tokens';
+import { trackSocialLinkClicked } from '../../utils/eventTracking';
 
 import {
   StyledImage,
@@ -58,7 +61,11 @@ export const Contact = () => {
           <StyledImage src={images[image].src} />
         </StyledImageContainer>
         <StyledListContainer>
-          <List items={contactData} light />
+          <List
+            items={contactData}
+            light
+            onItemClick={(item) => trackSocialLinkClicked(item)}
+          />
         </StyledListContainer>
       </StyledWrapper>
     </Container>
