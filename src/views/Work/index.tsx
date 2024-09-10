@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { colors } from '../../tokens';
-import { useDevice, useInViewport } from '../../hooks';
-import { workData } from '../../data';
-
 import { Container, Typography, ProgressBar } from '../../components';
 import { TypographyLevel } from '../../components/Typography/Typography.types';
 import { Padding } from '../../components/Container/Container.types';
+
+import { colors } from '../../tokens';
+import { useDevice, useInViewport } from '../../hooks';
+import { workData } from '../../data';
+import { trackWorkItemClicked } from '../../utils/eventTracking';
 
 import {
   StyledCarouselContainer,
@@ -55,6 +56,14 @@ export const Work = () => {
     setNext(current + 1);
   }, [current]);
 
+  const handleItemClick = (direction: 'previous' | 'next', item: string) => {
+    direction === 'previous'
+      ? setCurrent(current - 1)
+      : setCurrent(current + 1);
+
+    trackWorkItemClicked(item);
+  };
+
   return (
     <Container
       id="work"
@@ -76,7 +85,11 @@ export const Work = () => {
                 onMouseEnter={() => isDesktop && setPaused(true)}
                 onMouseLeave={() => isDesktop && setPaused(false)}
               >
-                <StyledButton onClick={() => setCurrent(current - 1)}>
+                <StyledButton
+                  onClick={() =>
+                    handleItemClick('previous', workData[previous].name)
+                  }
+                >
                   <Typography
                     level={TypographyLevel.HEADING_LARGE}
                     color={colors.neutral.white}
@@ -90,7 +103,9 @@ export const Work = () => {
                 >
                   {name}
                 </Typography>
-                <StyledButton onClick={() => setCurrent(current + 1)}>
+                <StyledButton
+                  onClick={() => handleItemClick('next', workData[next].name)}
+                >
                   <Typography
                     level={TypographyLevel.HEADING_LARGE}
                     color={colors.neutral.white}

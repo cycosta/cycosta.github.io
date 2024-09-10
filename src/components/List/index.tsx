@@ -13,7 +13,7 @@ import { IconType } from '../Icon/Icon.types';
 import { colors } from '../../tokens';
 import { useInViewport } from '../../hooks';
 
-export const List = ({ light = false, items }: ListProps) => {
+export const List = ({ light = false, items, onItemClick }: ListProps) => {
   const targetRef = useRef(null);
 
   const inViewport = useInViewport(targetRef, {
@@ -29,7 +29,12 @@ export const List = ({ light = false, items }: ListProps) => {
           $index={index}
           $inView={inViewport}
         >
-          <StyledLink href={item.url} $light={light} target="_blank">
+          <StyledLink
+            href={item.url}
+            $light={light}
+            target="_blank"
+            onClick={() => onItemClick && onItemClick(item.title)}
+          >
             <StyledTitle>{item.title}</StyledTitle>
             <Icon
               type={IconType.ARROW}
