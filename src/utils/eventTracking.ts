@@ -11,8 +11,8 @@ enum EventName {
 }
 
 enum EventAction {
-  page_viewed = 'page_viewed',
-  button_clicked = 'button_clicked',
+  PAGE_VIEWED = 'page_viewed',
+  BUTTON_CLICKED = 'button_clicked',
 }
 
 const trackEvent = (category: EventName, action: EventAction, label?: string) =>
@@ -23,22 +23,22 @@ const trackEvent = (category: EventName, action: EventAction, label?: string) =>
   });
 
 export const trackIntroPageViewed = () =>
-  trackEvent(EventName.INTRO_PAGE_VIEWED, EventAction.page_viewed);
+  trackEvent(EventName.INTRO_PAGE_VIEWED, EventAction.PAGE_VIEWED);
 
 export const trackNavigationClicked = (item: string) =>
-  trackEvent(EventName.NAVIGATION_CLICKED, EventAction.button_clicked, item);
+  trackEvent(EventName.NAVIGATION_CLICKED, EventAction.BUTTON_CLICKED, item);
 
 export const trackWorkItemClicked = (item: string) =>
-  trackEvent(EventName.WORK_ITEM_CLICKED, EventAction.button_clicked, item);
+  trackEvent(EventName.WORK_ITEM_CLICKED, EventAction.BUTTON_CLICKED, item);
 
 export const trackProjectItemClicked = (item: string) =>
-  trackEvent(EventName.PROJECT_ITEM_CLICKED, EventAction.button_clicked, item);
+  trackEvent(EventName.PROJECT_ITEM_CLICKED, EventAction.BUTTON_CLICKED, item);
 
 export const trackFeaturedItemClicked = (item: string) =>
-  trackEvent(EventName.FEATURED_ITEM_CLICKED, EventAction.button_clicked, item);
+  trackEvent(EventName.FEATURED_ITEM_CLICKED, EventAction.BUTTON_CLICKED, item);
 
 export const trackLoadMoreButtonClicked = () =>
-  trackEvent(EventName.FEATURED_LOAD_MORE_CLICKED, EventAction.button_clicked);
+  trackEvent(EventName.FEATURED_LOAD_MORE_CLICKED, EventAction.BUTTON_CLICKED);
 
 export const trackSocialLinkClicked = (item: string) =>
-  trackEvent(EventName.SOCIAL_LINK_CLICKED, EventAction.button_clicked, item);
+  trackEvent(EventName.SOCIAL_LINK_CLICKED, EventAction.BUTTON_CLICKED, item);
