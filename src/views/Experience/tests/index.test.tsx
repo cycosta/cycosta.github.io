@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 
-import { Work } from '..';
+import { Experience } from '..';
 
-describe('<Work />', () => {
-  const renderComponent = () => render(<Work />);
+describe('<Experience />', () => {
+  const renderComponent = () => render(<Experience />);
 
   it('should render component with first content in view', () => {
     renderComponent();
@@ -14,6 +14,9 @@ describe('<Work />', () => {
       }),
     ).toBeInTheDocument();
     expect(screen.getByText(/2021 — present/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/front-end software engineer/i),
+    ).toBeInTheDocument();
     expect(
       screen.getByText(
         /quintoandar is the top of mind proptech in latam, where i contribute to maintaining and enhancing the entire property visits experience within a team of over 15 people\./i,
