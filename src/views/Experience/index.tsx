@@ -72,7 +72,7 @@ export const Experience = () => {
     >
       <StyledCarouselContainer ref={targetRef}>
         {experienceData.map((job, index) => {
-          const { name, date, description } = job;
+          const { name, date, role, description } = job;
 
           return (
             <StyledCarouselItem
@@ -122,6 +122,12 @@ export const Experience = () => {
                   color={colors.neutral.white}
                 >
                   {date}
+                </Typography>
+                <Typography
+                  level={TypographyLevel.BODY_SMALL}
+                  color={colors.neutral.white}
+                >
+                  {role}
                 </Typography>
                 <Typography
                   level={TypographyLevel.BODY_SMALL}
