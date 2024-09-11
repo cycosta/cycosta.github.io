@@ -15,12 +15,12 @@ describe('<Header />', () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole('link', {
-        name: /work/i,
+        name: /experience/i,
       }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('link', {
-        name: /side projects/i,
+        name: /code snippets/i,
       }),
     ).toBeInTheDocument();
     expect(

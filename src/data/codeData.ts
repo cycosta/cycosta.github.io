@@ -1,4 +1,4 @@
-export const projectsData: { src: string; url: string }[] = [
+export const codeData: { src: string; url: string }[] = [
   {
     src: '/images/projects/orbiting-spheres.webm',
     url: 'https://codepen.io/cycosta/pen/MWebyex',

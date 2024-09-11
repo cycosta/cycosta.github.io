@@ -2,11 +2,11 @@ import { Section } from './Header.types';
 
 export const listItems: Section[] = [
   { label: "Hi, I'm", id: 'about', anchor: '#', dark: false },
-  { label: 'Work', id: 'work', anchor: '#work', dark: true },
+  { label: 'Experience', id: 'experience', anchor: '#experience', dark: true },
   {
-    label: 'Side Projects',
-    id: 'projects',
-    anchor: '#projects',
+    label: 'Code Snippets',
+    id: 'code',
+    anchor: '#code',
     dark: false,
   },
   {

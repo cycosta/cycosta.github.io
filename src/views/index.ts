@@ -1,5 +1,5 @@
 export { Contact } from './Contact';
+export { Experience } from './Experience';
 export { Featured } from './Featured';
 export { Intro } from './Intro';
-export { Projects } from './Projects';
-export { Work } from './Work';
+export { Code } from './Code';
