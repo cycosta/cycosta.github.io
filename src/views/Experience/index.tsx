@@ -6,8 +6,8 @@ import { Padding } from '../../components/Container/Container.types';
 
 import { colors } from '../../tokens';
 import { useDevice, useInViewport } from '../../hooks';
-import { workData } from '../../data';
-import { trackWorkItemClicked } from '../../utils/eventTracking';
+import { experienceData } from '../../data';
+import { trackExperienceItemClicked } from '../../utils/eventTracking';
 
 import {
   StyledCarouselContainer,
@@ -16,9 +16,9 @@ import {
   StyledButton,
   StyledCarouselContent,
   StyledProgressContainer,
-} from './Work.styles';
+} from './Experience.styles';
 
-export const Work = () => {
+export const Experience = () => {
   const { isMobile, isDesktop } = useDevice();
 
   const targetRef = useRef(null);
@@ -32,7 +32,7 @@ export const Work = () => {
   const [paused, setPaused] = useState(true);
 
   const carouselLoop = () => {
-    if (current === workData.length - 1) return setCurrent(0);
+    if (current === experienceData.length - 1) return setCurrent(0);
 
     return setCurrent(current + 1);
   };
@@ -61,17 +61,17 @@ export const Work = () => {
       ? setCurrent(current - 1)
       : setCurrent(current + 1);
 
-    trackWorkItemClicked(item);
+    trackExperienceItemClicked(item);
   };
 
   return (
     <Container
-      id="work"
-      backgroundColor={workData[current].brandColor}
+      id="experience"
+      backgroundColor={experienceData[current].brandColor}
       padding={Padding.NONE}
     >
       <StyledCarouselContainer ref={targetRef}>
-        {workData.map((job, index) => {
+        {experienceData.map((job, index) => {
           const { name, date, description } = job;
 
           return (
@@ -87,14 +87,14 @@ export const Work = () => {
               >
                 <StyledButton
                   onClick={() =>
-                    handleItemClick('previous', workData[previous].name)
+                    handleItemClick('previous', experienceData[previous].name)
                   }
                 >
                   <Typography
                     level={TypographyLevel.HEADING_LARGE}
                     color={colors.neutral.white}
                   >
-                    {workData[previous]?.name}
+                    {experienceData[previous]?.name}
                   </Typography>
                 </StyledButton>
                 <Typography
@@ -104,13 +104,15 @@ export const Work = () => {
                   {name}
                 </Typography>
                 <StyledButton
-                  onClick={() => handleItemClick('next', workData[next].name)}
+                  onClick={() =>
+                    handleItemClick('next', experienceData[next].name)
+                  }
                 >
                   <Typography
                     level={TypographyLevel.HEADING_LARGE}
                     color={colors.neutral.white}
                   >
-                    {workData[next]?.name}
+                    {experienceData[next]?.name}
                   </Typography>
                 </StyledButton>
               </StyledCarouselTitle>
@@ -134,7 +136,7 @@ export const Work = () => {
         {isMobile && (
           <StyledProgressContainer>
             <ProgressBar
-              numberOfItems={workData.length}
+              numberOfItems={experienceData.length}
               activeItem={current}
               animationDuration={4}
             />

@@ -1,6 +1,6 @@
 import { colors } from '../tokens';
 
-export const workData: {
+export const experienceData: {
   name: string;
   brandColor: string;
   date: string;
