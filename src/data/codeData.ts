@@ -8,6 +8,10 @@ export const codeData: { src: string; url: string }[] = [
     url: 'https://codepen.io/cycosta/pen/ZEQXvJW',
   },
   {
+    src: '/images/projects/big-white-cloud.webm',
+    url: 'https://cycosta.dev/bigwhitecloud',
+  },
+  {
     src: '/images/projects/login-sign-up.webm',
     url: 'https://codepen.io/cycosta/pen/GRoePzE?editors=1100',
   },
@@ -18,9 +22,5 @@ export const codeData: { src: string; url: string }[] = [
   {
     src: '/images/projects/animated-solar-system.webm',
     url: 'https://codepen.io/cycosta/pen/OJMebrQ',
-  },
-  {
-    src: '/images/projects/big-white-cloud.webm',
-    url: 'https://cycosta.dev/bigwhitecloud',
   },
 ];
