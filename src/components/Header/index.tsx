@@ -6,7 +6,6 @@ import { TypographyLevel } from '../Typography/Typography.types';
 
 import { colors } from '../../tokens';
 import { useDevice } from '../../hooks';
-import { trackNavigationClicked } from '../../utils/eventTracking';
 
 import {
   StyledHeader,
@@ -37,8 +36,6 @@ export const Header = () => {
   const handleItemClick = (section: Section) => {
     setCurrentSection(section);
     setNavVisible(false);
-
-    trackNavigationClicked(section.label);
   };
 
   useEffect(() => {

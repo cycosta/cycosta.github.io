@@ -9,10 +9,6 @@ import { Padding } from '../../components/Container/Container.types';
 
 import { featuredData } from '../../data';
 import { useDevice } from '../../hooks';
-import {
-  trackFeaturedItemClicked,
-  trackLoadMoreButtonClicked,
-} from '../../utils/eventTracking';
 
 import { StyledWrapper, StyledBottomWrapper } from './Featured.styles';
 
@@ -25,17 +21,12 @@ export const Featured = () => {
   const handleLoadMore = () => {
     setVisibleListCount((prevCount) => prevCount + 5);
     setVisibleList(featuredData.slice(0, visibleListCount + 5));
-
-    trackLoadMoreButtonClicked();
   };
 
   return (
     <Container id="featured" padding={Padding.FULL}>
       <StyledWrapper>
-        <List
-          items={visibleList}
-          onItemClick={(item) => trackFeaturedItemClicked(item)}
-        />
+        <List items={visibleList} />
       </StyledWrapper>
       {visibleList.length !== featuredData.length && (
         <StyledBottomWrapper>

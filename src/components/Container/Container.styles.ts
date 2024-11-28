@@ -80,4 +80,5 @@ export const StyledContainer = styled.section<{
     $padding ? setPadding($padding) : setPadding(Padding.DEFAULT)};
   width: ${({ $width }) => $width || 'auto'};
   height: ${({ $height }) => $height || 'auto'};
+  transition: background-color 0.3s ease;
 `;
