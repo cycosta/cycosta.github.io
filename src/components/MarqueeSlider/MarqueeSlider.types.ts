@@ -4,5 +4,9 @@ export interface MarqueeSliderProps {
   setBackgroundColor: (color: string) => void;
   hovered: boolean;
   setHovered: (hovered: boolean) => void;
-  setContent: (content: any) => void;
+  setContent: (content: {
+    date?: string;
+    role?: string;
+    description?: string;
+  }) => void;
 }

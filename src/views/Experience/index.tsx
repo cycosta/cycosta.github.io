@@ -52,6 +52,7 @@ export const Experience = () => {
             items={experienceData}
             startSlider={startSlider}
             setBackgroundColor={setBackgroundColor}
+            setContent={setContent}
           />
         ) : (
           <MarqueeSlider

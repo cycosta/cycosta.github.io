@@ -16,6 +16,7 @@ export const Slider = ({
   items,
   startSlider,
   setBackgroundColor,
+  setContent,
 }: SliderProps) => {
   const [current, setCurrent] = useState(0);
   const [previous, setPrevious] = useState<number>(0);
@@ -36,6 +37,7 @@ export const Slider = ({
 
   useEffect(() => {
     setBackgroundColor(items[current].brandColor);
+    setContent(items[current]);
     setPrevious(current - 1);
     setNext(current + 1);
   }, [current]);

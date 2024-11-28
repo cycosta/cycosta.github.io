@@ -19,10 +19,10 @@ export const StyledDescription = styled.div<{ $visible: boolean }>`
   gap: ${spacing.hxxsmall};
   justify-content: space-between;
   padding: ${spacing.small} ${spacing.xsmall} 0;
-  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   transition: opacity 0.3s ease;
 
   @media ${devices.lg} {
     padding: ${spacing.small} ${spacing.xxlarge} 0;
+    opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   }
 `;
