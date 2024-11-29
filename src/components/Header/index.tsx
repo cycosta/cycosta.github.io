@@ -5,6 +5,7 @@ import { IconType } from '../Icon/Icon.types';
 import { TypographyLevel } from '../Typography/Typography.types';
 
 import { colors } from '../../tokens';
+import { useTheme, useNavigation } from '../../context';
 import { useDevice } from '../../hooks';
 
 import {
@@ -17,35 +18,33 @@ import {
   StyledListItem,
   StyledLink,
 } from './Header.styles';
-import { Section } from './Header.types';
-import { listItems } from './constants';
+import { ICON_WIDTH, ICON_HEIGHT, listItems } from './constants';
 
 export const Header = () => {
+  const { theme } = useTheme();
+  const { navigationHash, setNavigationHash } = useNavigation();
+
   const { isMobile } = useDevice();
 
-  const [currentSection, setCurrentSection] = useState<Section>(listItems[0]);
-
-  const currentSectionItem = listItems.find(
-    (item) => item.id === currentSection.id,
-  );
-
+  const [light, setLight] = useState(false);
   const [navVisible, setNavVisible] = useState(false);
 
-  const light = listItems.find((item) => item.id === currentSection.id)?.dark;
+  const currentSectionItem = listItems.find(
+    (item) => item.id === navigationHash,
+  );
 
-  const handleItemClick = (section: Section) => {
-    setCurrentSection(section);
+  const handleItemClick = (id: string) => {
+    setNavigationHash(id);
     setNavVisible(false);
   };
 
   useEffect(() => {
-    window.addEventListener('popstate', () => {
-      setCurrentSection(
-        listItems.find((item) => item.anchor === window.location.hash) ||
-          listItems[0],
-      );
-    });
-  }, [window]);
+    history.pushState(null, '', navigationHash);
+  }, [navigationHash]);
+
+  useEffect(() => {
+    theme === 'dark' ? setLight(true) : setLight(false);
+  }, [theme]);
 
   return (
     <StyledHeader>
@@ -68,20 +67,18 @@ export const Header = () => {
             {listItems.map((item, index) => (
               <StyledListItem key={index} $index={index}>
                 <StyledLink
-                  href={item.anchor}
+                  href={`#${item.id}`}
                   $light={light}
-                  onClick={() => handleItemClick(item)}
-                  className={
-                    currentSectionItem?.anchor === item.anchor ? 'active' : ''
-                  }
+                  onClick={() => handleItemClick(item.id)}
+                  className={navigationHash === item.id ? 'active' : ''}
                 >
                   {item.label}
                   {isMobile && (
                     <Icon
                       type={IconType.ARROW}
                       color={colors.primary.green.dark}
-                      width="16"
-                      height="12"
+                      width={ICON_WIDTH}
+                      height={ICON_HEIGHT}
                     />
                   )}
                 </StyledLink>

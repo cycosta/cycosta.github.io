@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors, devices, spacing } from '../../tokens';
+import { devices, spacing } from '../../tokens';
 
 import { Padding } from './Container.types';
 
@@ -74,8 +74,7 @@ export const StyledContainer = styled.section<{
   $backgroundColor?: string;
   $padding?: Padding;
 }>`
-  background-color: ${({ $backgroundColor }) =>
-    $backgroundColor || colors.neutral.offWhite};
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
   ${({ $padding }) =>
     $padding ? setPadding($padding) : setPadding(Padding.DEFAULT)};
   width: ${({ $width }) => $width || 'auto'};
