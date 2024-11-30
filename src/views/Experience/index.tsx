@@ -16,7 +16,9 @@ import {
 } from './Experience.styles';
 
 export const Experience = () => {
-  const { isMobile } = useDevice();
+  const { isMobile, isTablet } = useDevice();
+
+  const isTouchDevice = isMobile || isTablet;
 
   const targetRef = useRef(null);
   const inViewport = useInViewport(targetRef, {
@@ -47,7 +49,7 @@ export const Experience = () => {
       backgroundColor={backgroundColor}
     >
       <StyledExperienceContainer ref={targetRef}>
-        {isMobile ? (
+        {isTouchDevice ? (
           <Slider
             items={experienceData}
             startSlider={startSlider}
