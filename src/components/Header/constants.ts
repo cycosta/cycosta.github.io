@@ -1,19 +1,18 @@
 import { Section } from './Header.types';
 
+export const ICON_WIDTH = '16';
+export const ICON_HEIGHT = '12';
+
 export const listItems: Section[] = [
-  { label: "Hi, I'm", id: 'about', anchor: '#', dark: false },
-  { label: 'Experience', id: 'experience', anchor: '#experience', dark: true },
+  { label: "Hi, I'm", id: 'about' },
+  { label: 'Experience', id: 'experience' },
   {
     label: 'Code Snippets',
     id: 'code',
-    anchor: '#code',
-    dark: false,
   },
   {
     label: 'People are saying',
     id: 'featured',
-    anchor: '#featured',
-    dark: false,
   },
-  { label: "Let's talk", id: 'contact', anchor: '#contact', dark: true },
+  { label: "Let's talk", id: 'contact' },
 ];
