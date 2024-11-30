@@ -1,9 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+
+import { renderWithProvider } from '../../../utils';
 
 import { Intro } from '..';
 
 describe('<Intro />', () => {
-  const renderComponent = () => render(<Intro />);
+  const renderComponent = () => renderWithProvider(<Intro />);
 
   it('should render component with default content', () => {
     renderComponent();

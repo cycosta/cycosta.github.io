@@ -1,11 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
+import { renderWithProvider } from '../../../utils';
 import { featuredData } from '../../../data';
 
 import { Featured } from '..';
 
 describe('<Featured />', () => {
-  const renderComponent = () => render(<Featured />);
+  const renderComponent = () => renderWithProvider(<Featured />);
 
   it('should render component with initial featured list', () => {
     renderComponent();
