@@ -39,7 +39,7 @@ export const Header = () => {
   };
 
   useEffect(() => {
-    history.pushState(null, '', navigationHash);
+    history.pushState(null, '', `#${navigationHash}`);
   }, [navigationHash]);
 
   useEffect(() => {
