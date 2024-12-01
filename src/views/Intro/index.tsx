@@ -24,8 +24,8 @@ export const Intro = () => (
           level={TypographyLevel.BODY_MEDIUM}
           color={colors.primary.green.dark}
         >
-          Experienced front-end software engineer with a strong background in
-          product development.
+          Experienced frontend software engineer with a strong background in
+          product and UI development.
         </Typography>
         <StyledSkillsList>
           {skillsData.map((skill, index) => (
