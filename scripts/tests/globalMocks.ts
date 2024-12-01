@@ -1,8 +1,9 @@
 jest.mock('../../src/hooks/useDevice.ts', () => ({
   useDevice: jest.fn(() => ({
     isMobile: false,
-    isMediumUp: true,
+    isTablet: false,
     isDesktop: true,
+    isLargeDesktop: false,
   })),
 }));
 

@@ -19,11 +19,17 @@ export const MarqueeSlider = ({
   setHovered,
   setContent,
 }: MarqueeSliderProps) => {
-  const { isMobile } = useDevice();
+  const { isLargeDesktop } = useDevice();
+
+  console.log(isLargeDesktop);
 
   return (
     <StyledMarqueeContainer>
-      <Marquee play={startSlider} pauseOnHover speed={isMobile ? 150 : 300}>
+      <Marquee
+        play={startSlider}
+        pauseOnHover
+        speed={isLargeDesktop ? 400 : 300}
+      >
         {items.map((item, index) => {
           const { name, date, role, description, brandColor } = item;
 

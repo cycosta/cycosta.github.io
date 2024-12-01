@@ -10,6 +10,8 @@ describe('<Intro />', () => {
   it('should render component with default content', () => {
     renderComponent();
 
+    screen.logTestingPlaygroundURL();
+
     expect(
       screen.getByRole('heading', {
         name: /cynthia/i,
@@ -28,7 +30,7 @@ describe('<Intro />', () => {
 
     expect(
       screen.getByText(
-        /experienced front-end software engineer with a strong background in product development\./i,
+        /experienced frontend software engineer with a strong background in product and ui development\./i,
       ),
     ).toBeInTheDocument();
 

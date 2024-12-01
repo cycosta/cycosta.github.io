@@ -1,14 +1,11 @@
 export const skillsData = [
-  'HTML',
-  'CSS',
-  'SASS',
+  'HTML/CSS',
+  'SCSS',
   'JavaScript',
   'TypeScript',
   'React',
   'Styled Components',
-  'Jest',
-  'Redux',
   'Angular',
+  'Unit testing',
   'UI/UX',
-  'Git',
 ];
