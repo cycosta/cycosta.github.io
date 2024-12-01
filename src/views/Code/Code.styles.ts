@@ -5,10 +5,10 @@ import { colors, devices, spacing } from '../../tokens';
 const backgroundColors = [
   colors.secondary.rose.light,
   colors.secondary.rose.default,
-  colors.primary.green.lightest,
   colors.primary.green.default,
   colors.secondary.caramel.default,
   colors.secondary.purple,
+  colors.primary.green.lightest,
 ];
 
 export const StyledGalleryContainer = styled.div`
