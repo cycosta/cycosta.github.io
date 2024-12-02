@@ -3,12 +3,21 @@ import styled from 'styled-components';
 import { colors, devices, spacing } from '../../tokens';
 
 const backgroundColors = [
-  colors.video.rose.light,
-  colors.video.rose.default,
-  colors.video.green.default,
-  colors.video.caramel.default,
-  colors.video.purple,
-  colors.video.green.lightest,
+  colors.video.mobile.rose.light,
+  colors.video.mobile.rose.default,
+  colors.video.mobile.green.default,
+  colors.video.mobile.caramel.default,
+  colors.video.mobile.purple,
+  colors.video.mobile.green.lightest,
+];
+
+const desktopBackgroundColors = [
+  colors.video.desktop.rose.light,
+  colors.video.desktop.rose.default,
+  colors.video.desktop.green.default,
+  colors.video.desktop.caramel.default,
+  colors.video.desktop.purple,
+  colors.video.desktop.green.lightest,
 ];
 
 export const StyledGalleryContainer = styled.div`
@@ -59,6 +68,8 @@ export const StyledGalleryItem = styled.a<{
 
   @media ${devices.lg} {
     border-radius: 0;
+    background-color: ${({ $index }) =>
+      desktopBackgroundColors[$index % backgroundColors.length]};
     overflow: visible;
     width: 32%;
     height: 90%;
