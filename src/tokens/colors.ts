@@ -1,39 +1,53 @@
 export const colors = {
   primary: {
     green: {
-      lightest: '#E7F2E7',
-      light: '#D0EAD9',
+      lightest: '#e7f2e7',
+      light: '#d0ead9',
       default: '#036147',
-      dark: '#38553A',
-      darkest: '#2D442E',
+      dark: '#38553a',
+      darkest: '#2d442e',
     },
   },
   neutral: {
-    white: '#FFFFFF',
-    offWhite: '#F6F3EE',
+    white: '#ffffff',
+    offWhite: '#f6f3ee',
     gray: {
-      default: '#AAAAAA',
+      default: '#aaaaaa',
       dark: '#333333',
     },
     black: '#000000',
   },
   secondary: {
     caramel: {
-      default: '#EEDCAC',
-      light: '#FEFADF',
-      dark: '#D3A373',
+      default: '#eedcac',
+      light: '#fefadf',
+      dark: '#d3a373',
     },
-    purple: '#511F67',
+    purple: '#511f67',
     rose: {
-      default: '#FFE2D2',
-      light: '#FFF1DD',
+      default: '#ffe2d2',
+      light: '#fff1dd',
     },
   },
   brand: {
-    quintoAndar: '#3957BD',
-    picpay: '#11C76F',
-    webedia: '#0028BD',
-    milk: '#08AAD9',
+    quintoAndar: '#3957bd',
+    picpay: '#11c76f',
+    webedia: '#0028bd',
+    milk: '#08aad9',
     conves: '#010475',
+  },
+  video: {
+    rose: {
+      default: '#fee1d2',
+      light: '#fff0da',
+    },
+    green: {
+      default: '#006046',
+      lightest: '#e6f1e7',
+    },
+    caramel: {
+      default: '#ecdaab',
+    },
+    purple: '#501f67',
   },
 };
