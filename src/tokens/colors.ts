@@ -37,17 +37,33 @@ export const colors = {
     conves: '#010475',
   },
   video: {
-    rose: {
-      default: '#fee1d2',
-      light: '#fff0da',
+    desktop: {
+      rose: {
+        default: '#fee1d2',
+        light: '#fff0da',
+      },
+      green: {
+        default: '#006046',
+        lightest: '#e6f1e7',
+      },
+      caramel: {
+        default: '#ecdaab',
+      },
+      purple: '#501f67',
     },
-    green: {
-      default: '#006046',
-      lightest: '#e6f1e7',
+    mobile: {
+      rose: {
+        default: '#feddcc',
+        light: '#feeed5',
+      },
+      green: {
+        default: '#00563d',
+        lightest: '#e2f0e3',
+      },
+      caramel: {
+        default: '#ead6a1',
+      },
+      purple: '#461c5c',
     },
-    caramel: {
-      default: '#ecdaab',
-    },
-    purple: '#501f67',
   },
 };
