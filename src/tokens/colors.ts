@@ -10,7 +10,7 @@ export const colors = {
   },
   neutral: {
     white: '#ffffff',
-    offwhite: '#f6f3ee',
+    offWhite: '#f6f3ee',
     gray: {
       default: '#aaaaaa',
       dark: '#333333',
