@@ -30,7 +30,7 @@ export const colors = {
     },
   },
   brand: {
-    quintoandar: '#3957bd',
+    quintoAndar: '#3957bd',
     picpay: '#11c76f',
     webedia: '#0028bd',
     milk: '#08aad9',
