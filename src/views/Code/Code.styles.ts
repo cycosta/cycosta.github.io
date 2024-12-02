@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { colors, devices, spacing } from '../../tokens';
 
 const backgroundColors = [
-  colors.secondary.rose.light,
-  colors.secondary.rose.default,
-  colors.primary.green.default,
-  colors.secondary.caramel.default,
-  colors.secondary.purple,
-  colors.primary.green.lightest,
+  colors.video.rose.light,
+  colors.video.rose.default,
+  colors.video.green.default,
+  colors.video.caramel.default,
+  colors.video.purple,
+  colors.video.green.lightest,
 ];
 
 export const StyledGalleryContainer = styled.div`
