@@ -51,7 +51,13 @@ export const Code = () => {
             $index={index}
             $current={currentIndex}
           >
-            <StyledGalleryVideo src={code.src} muted loop autoPlay />
+            <StyledGalleryVideo
+              src={code.src}
+              muted
+              loop
+              autoPlay
+              playsInline
+            />
           </StyledGalleryItem>
         ))}
       </StyledGalleryContainer>

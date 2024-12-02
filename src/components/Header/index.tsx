@@ -67,7 +67,7 @@ export const Header = () => {
             {listItems.map((item, index) => (
               <StyledListItem key={index} $index={index}>
                 <StyledLink
-                  href={`#${item.id}`}
+                  href={item.id === 'about' ? '#' : `#${item.id}`}
                   $light={light}
                   onClick={() => handleItemClick(item.id)}
                   className={navigationHash === item.id ? 'active' : ''}
