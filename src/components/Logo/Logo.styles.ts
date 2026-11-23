@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { colors } from '../../tokens';
 
-export const StyledLogo = styled.a<{
+export const StyledLogo = styled.span<{
   $width: string;
   $height: string;
   $light: boolean;

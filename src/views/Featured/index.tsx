@@ -18,16 +18,27 @@ export const Featured = () => {
   const { isMobile } = useDevice();
 
   const [visibleListCount, setVisibleListCount] = useState(PAGE_SIZE);
+  const [focusIndex, setFocusIndex] = useState<number>();
   const visibleList = featuredData.slice(0, visibleListCount);
 
   const handleLoadMore = () => {
+    // Move focus to the first new article so keyboard and screen reader
+    // users continue from there (the button may also disappear).
+    setFocusIndex(visibleListCount);
     setVisibleListCount((prevCount) => prevCount + PAGE_SIZE);
   };
 
   return (
-    <Container id="featured" padding={Padding.FULL}>
+    <Container
+      id="featured"
+      labelledBy="featured-heading"
+      padding={Padding.FULL}
+    >
+      <h2 id="featured-heading" className="visually-hidden">
+        People are saying
+      </h2>
       <StyledWrapper>
-        <List items={visibleList} />
+        <List items={visibleList} focusIndex={focusIndex} />
       </StyledWrapper>
       {visibleList.length !== featuredData.length && (
         <StyledBottomWrapper>

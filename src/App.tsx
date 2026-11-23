@@ -7,6 +7,9 @@ import { Contact, Featured, Intro, Code, Experience } from './views';
 function App() {
   return (
     <AppProvider>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Header />
       <Main>
         <Intro />

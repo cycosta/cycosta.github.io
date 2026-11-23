@@ -10,16 +10,10 @@ describe('<Intro />', () => {
   it('should render component with default content', () => {
     renderComponent();
 
-    screen.logTestingPlaygroundURL();
-
     expect(
       screen.getByRole('heading', {
-        name: /cynthia/i,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('heading', {
-        name: /costa/i,
+        level: 1,
+        name: 'Cynthia Costa',
       }),
     ).toBeInTheDocument();
     expect(

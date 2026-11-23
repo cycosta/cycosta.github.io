@@ -11,7 +11,7 @@ export const Arrow = ({ fillColor, direction }: ArrowProps) => {
   return (
     <StyledArrow
       src={`data:image/svg+xml;utf8,${svgPath}`}
-      alt={`Arrow icon`}
+      alt=""
       $direction={direction}
     />
   );

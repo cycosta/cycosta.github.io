@@ -15,4 +15,6 @@ export interface ContainerProps {
   backgroundColor?: string;
   children: React.ReactNode;
   padding?: Padding;
+  /** Id of the heading that names this section. */
+  labelledBy?: string;
 }

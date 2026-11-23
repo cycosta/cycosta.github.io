@@ -20,6 +20,8 @@ export const Icon = ({ type, color, width, height }: IconProps) => {
       height={height}
       viewBox={viewBox}
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
     >
       <path d={d} fill={color} />
     </svg>

@@ -40,18 +40,29 @@ export const Code = () => {
   };
 
   return (
-    <Container id="code" padding={Padding.VERTICAL}>
+    <Container id="code" labelledBy="code-heading" padding={Padding.VERTICAL}>
+      <h2 id="code-heading" className="visually-hidden">
+        Code snippets
+      </h2>
       <StyledGalleryContainer>
         {codeData.map((code, index) => (
           <StyledGalleryItem
             href={code.url}
             target="_blank"
+            rel="noopener noreferrer"
             key={index}
             onMouseOver={() => handleOnHover(index)}
+            // Slide the desktop gallery so keyboard focus stays in view.
+            onFocus={() => handleOnHover(index)}
             $index={index}
             $current={currentIndex}
           >
-            <StyledGalleryVideo src={code.src} />
+            <StyledGalleryVideo src={code.src} aria-hidden="true" />
+            <span className="visually-hidden">
+              {code.title}
+              {code.url.includes('codepen.io') ? ' on CodePen' : ' demo'}
+              {' (opens in a new tab)'}
+            </span>
           </StyledGalleryItem>
         ))}
       </StyledGalleryContainer>

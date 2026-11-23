@@ -52,6 +52,8 @@ export const StyledGalleryItem = styled.a<{
   justify-content: center;
   align-items: center;
   border-radius: 16px;
+  /* Sets the focus ring colour (outline uses currentColor). */
+  color: ${colors.primary.green.dark};
   background-color: ${({ $index }) =>
     backgroundColors[$index % backgroundColors.length]};
   overflow: hidden;

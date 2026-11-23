@@ -4,6 +4,7 @@ import { Container, Headline, List } from '../../components';
 import { Padding } from '../../components/Container/Container.types';
 
 import { contactData } from '../../data';
+import { useMotion } from '../../context';
 import { useDevice, useInViewport } from '../../hooks';
 import { colors } from '../../tokens';
 
@@ -34,11 +35,13 @@ export const Contact = () => {
     threshold: 0,
   });
 
+  const { motionPaused } = useMotion();
+
   const [image, setImage] = useState(0);
   const nextImage = (image + 1) % IMAGES.length;
 
   useEffect(() => {
-    if (!inViewport) return;
+    if (!inViewport || motionPaused) return;
 
     let interval: ReturnType<typeof setInterval> | undefined;
 
@@ -60,16 +63,23 @@ export const Contact = () => {
       clearInterval(interval);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [inViewport]);
+  }, [inViewport, motionPaused]);
 
   return (
     <Container
       id="contact"
+      labelledBy="contact-heading"
       backgroundColor={colors.primary.green.dark}
       padding={isMobile ? Padding.FULL : Padding.BOTTOM}
     >
       <StyledWrapper ref={targetRef}>
-        {inViewport && <Headline paragraphs={[`Let's`, 'talk']} light />}
+        <h2 id="contact-heading" className="visually-hidden">
+          Let&apos;s talk
+        </h2>
+        {/* Animated copy of the heading, mounted when scrolled into view. */}
+        {inViewport && (
+          <Headline paragraphs={[`Let's`, 'talk']} light decorative />
+        )}
         <StyledImageContainer>
           <StyledImage
             key={IMAGES[image]}

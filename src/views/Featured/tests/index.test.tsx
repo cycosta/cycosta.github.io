@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 
 import { renderWithProvider } from '../../../utils';
 import { featuredData } from '../../../data';
@@ -16,5 +16,17 @@ describe('<Featured />', () => {
     visibleList.forEach((item) => {
       expect(screen.getByText(item.title)).toBeInTheDocument();
     });
+  });
+
+  it('should move focus to the first newly loaded article', () => {
+    renderComponent();
+
+    fireEvent.click(screen.getByRole('button', { name: /load more/i }));
+
+    expect(
+      screen.getByRole('link', {
+        name: `${featuredData[5].title} (opens in a new tab)`,
+      }),
+    ).toHaveFocus();
   });
 });

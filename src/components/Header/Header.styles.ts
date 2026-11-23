@@ -27,10 +27,16 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const StyledToggle = styled.div`
+export const StyledToggle = styled.button<{ $light: boolean }>`
   display: flex;
   align-items: center;
   gap: ${spacing.xxsmall};
+  padding: 0;
+  border: none;
+  background: none;
+  color: ${({ $light }) =>
+    $light ? colors.neutral.white : colors.primary.green.darkest};
+  cursor: pointer;
 
   @media ${devices.lg} {
     display: none;
@@ -72,24 +78,39 @@ export const StyledNav = styled.nav`
 
 export const StyledCloseButton = styled.button<{ $visible: boolean }>`
   position: relative;
-  width: 18px;
-  height: 2px;
-  background-color: ${colors.primary.green.dark};
+  /* 44px tap target; the X itself stays 18px wide. */
+  width: 44px;
+  height: 44px;
+  margin-left: -13px;
+  padding: 0;
   border: none;
-  transform: rotate(45deg);
+  background: none;
+  color: ${colors.primary.green.dark};
+  cursor: pointer;
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   transition: opacity 0.2s 0.3s ease-in-out;
 
-  &::before {
+  &::before,
+  &::after {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
     content: '';
-    display: block;
     width: 18px;
     height: 2px;
-    background-color: ${colors.primary.green.dark};
-    transform: rotate(-90deg);
+    background-color: currentColor;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &:focus-visible {
+    outline-offset: 0;
   }
 
   @media ${devices.lg} {
@@ -143,20 +164,45 @@ export const StyledLink = styled.a<{ $light?: boolean }>`
 
   @media ${devices.lg} {
     transition: color 0.3s ease;
+    /* Inactive links: at least 4.5:1 against light and dark sections. On
+       dark sections only full white passes on every brand background. */
     color: ${({ $light }) =>
-      $light ? colors.neutral.white : colors.neutral.gray.default};
-    opacity: ${({ $light }) => ($light ? 0.2 : 1)};
+      $light ? colors.neutral.white : colors.primary.green.muted};
 
     &:hover {
       color: ${({ $light }) =>
         $light ? colors.neutral.white : colors.primary.green.default};
-      opacity: 1;
     }
 
+    /* Underline marks the current section without relying on colour. */
     &.active {
       color: ${({ $light }) =>
         $light ? colors.neutral.white : colors.primary.green.dark};
-      opacity: 1;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 6px;
     }
+  }
+`;
+
+export const StyledMotionToggle = styled.button<{ $light: boolean }>`
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+  color: ${({ $light }) =>
+    $light ? colors.neutral.white : colors.primary.green.dark};
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  @media ${devices.lg} {
+    font-family: 'FleuronRegular', 'Helvetica Neue', Helvetica, Arial,
+      sans-serif;
+    font-size: 16px;
   }
 `;

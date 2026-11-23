@@ -6,6 +6,8 @@ export const colors = {
       default: '#036147',
       dark: '#38553a',
       darkest: '#2d442e',
+      // Lightest green-gray that still reaches 4.5:1 on offWhite.
+      muted: '#66705f',
     },
   },
   neutral: {

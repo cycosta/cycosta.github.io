@@ -9,8 +9,7 @@ const getVariantStyles = (variant: ButtonVariant, light: boolean) => {
   const styleMap = {
     primary: `
       background-color: ${light ? colors.primary.green.lightest : colors.primary.green.dark};
-      outline-color: ${light ? 'transparent' : colors.primary.green.dark};
-      outline-offset: -2px;
+      --button-border: ${light ? 'transparent' : colors.primary.green.dark};
       color: ${light ? colors.primary.green.darkest : colors.neutral.offWhite};
   
       &:hover {
@@ -24,14 +23,13 @@ const getVariantStyles = (variant: ButtonVariant, light: boolean) => {
       &:disabled {
         background-color: ${light ? colors.neutral.gray.dark : colors.neutral.gray.default};
         color: ${light ? colors.neutral.gray.default : colors.neutral.gray.dark};
-        outline: none;
+        --button-border: transparent;
       }
     `,
 
     secondary: `
       background-color: transparent;
-      outline-color: ${light ? colors.primary.green.lightest : colors.primary.green.dark};
-      outline-offset: -2px;
+      --button-border: ${light ? colors.primary.green.lightest : colors.primary.green.dark};
       color: ${light ? colors.primary.green.lightest : colors.primary.green.dark};
   
       &:hover {
@@ -45,7 +43,7 @@ const getVariantStyles = (variant: ButtonVariant, light: boolean) => {
   
       &:disabled {
         background-color: transparent;
-        outline-color: ${light ? colors.neutral.gray.dark : colors.neutral.gray.default};
+        --button-border: ${light ? colors.neutral.gray.dark : colors.neutral.gray.default};
         color: ${colors.neutral.gray.default};
       }
     `,
@@ -55,7 +53,6 @@ const getVariantStyles = (variant: ButtonVariant, light: boolean) => {
       display: flex;
       align-items: center;
       background-color: transparent;
-      outline: none;
       color: ${light ? colors.primary.green.lightest : colors.primary.green.dark};
       margin-right: 40px;
   
@@ -141,7 +138,9 @@ const getVariantStyles = (variant: ButtonVariant, light: boolean) => {
 const buttonStyles = (size: string) => css`
   height: ${size === 'large' ? '70px' : '48px'};
   padding: ${size === 'large' ? `0 ${spacing.small}` : `0 ${spacing.xxsmall}`};
-  outline: ${size === 'large' ? '2px solid' : '1px solid'};
+  /* Border drawn with box-shadow so outline stays free for focus rings. */
+  box-shadow: inset 0 0 0 ${size === 'large' ? '2px' : '1px'}
+    var(--button-border, transparent);
   border: none;
   border-radius: 60px;
   line-height: ${size === 'large' ? '25px' : spacing.xsmall};

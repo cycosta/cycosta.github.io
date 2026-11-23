@@ -14,6 +14,7 @@ export const Container = ({
   backgroundColor = colors.neutral.offWhite,
   children,
   padding,
+  labelledBy,
 }: ContainerProps) => {
   const { setTheme } = useTheme();
   const { setNavigationHash } = useNavigation();
@@ -40,6 +41,7 @@ export const Container = ({
   return (
     <StyledContainer
       id={id}
+      aria-labelledby={labelledBy}
       ref={containerRef}
       $width={width}
       $height={height}

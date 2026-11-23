@@ -17,9 +17,9 @@ const IMAGE_SIZES =
   '(min-width: 1280px) 480px, (min-width: 1024px) 30vw, 240px';
 
 export const Intro = () => (
-  <Container id="about">
+  <Container id="about" labelledBy="about-heading">
     <StyledWrapper>
-      <Headline paragraphs={['Cynthia', 'Costa']} />
+      <Headline id="about-heading" paragraphs={['Cynthia', 'Costa']} />
       <StyledImageContainer>
         <StyledImage
           src="/images/cycosta.jpg"
@@ -42,6 +42,7 @@ export const Intro = () => (
           {skillsData.map((skill, index) => (
             <Typography
               key={index}
+              as="li"
               level={TypographyLevel.BODY_SMALL}
               color={colors.primary.green.dark}
             >
