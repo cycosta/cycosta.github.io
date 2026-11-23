@@ -14,6 +14,17 @@ import {
   StyledWrapper,
 } from './Contact.styles';
 
+const IMAGES = Array.from(
+  { length: 12 },
+  (_, index) => `/images/photography/cycosta-${index + 1}.jpg`,
+);
+
+const SLIDE_INTERVAL_MS = 2000;
+
+// Mirrors the StyledImage widths: 240px mobile, column width on lg, 480px xl.
+const IMAGE_SIZES =
+  '(min-width: 1280px) 480px, (min-width: 1024px) 30vw, 240px';
+
 export const Contact = () => {
   const { isMobile } = useDevice();
 
@@ -23,32 +34,33 @@ export const Contact = () => {
     threshold: 0,
   });
 
-  const images = [
-    { src: 'images/photography/cycosta-1.jpg' },
-    { src: 'images/photography/cycosta-2.jpg' },
-    { src: 'images/photography/cycosta-3.jpg' },
-    { src: 'images/photography/cycosta-4.jpg' },
-    { src: 'images/photography/cycosta-5.jpg' },
-    { src: 'images/photography/cycosta-6.jpg' },
-    { src: 'images/photography/cycosta-7.jpg' },
-    { src: 'images/photography/cycosta-8.jpg' },
-    { src: 'images/photography/cycosta-9.jpg' },
-    { src: 'images/photography/cycosta-10.jpg' },
-    { src: 'images/photography/cycosta-11.jpg' },
-    { src: 'images/photography/cycosta-12.jpg' },
-  ];
-
   const [image, setImage] = useState(0);
+  const nextImage = (image + 1) % IMAGES.length;
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (image === images.length - 1) return setImage(0);
+    if (!inViewport) return;
 
-      return setImage(image + 1);
-    }, 2000);
+    let interval: ReturnType<typeof setInterval> | undefined;
 
-    return () => clearInterval(interval);
-  }, [image]);
+    const start = () => {
+      clearInterval(interval);
+      interval = setInterval(
+        () => setImage((index) => (index + 1) % IMAGES.length),
+        SLIDE_INTERVAL_MS,
+      );
+    };
+
+    const handleVisibilityChange = () =>
+      document.hidden ? clearInterval(interval) : start();
+
+    if (!document.hidden) start();
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [inViewport]);
 
   return (
     <Container
@@ -59,7 +71,27 @@ export const Contact = () => {
       <StyledWrapper ref={targetRef}>
         {inViewport && <Headline paragraphs={[`Let's`, 'talk']} light />}
         <StyledImageContainer>
-          <StyledImage src={images[image].src} />
+          <StyledImage
+            key={IMAGES[image]}
+            src={IMAGES[image]}
+            alt=""
+            sizes={IMAGE_SIZES}
+            width={480}
+            height={640}
+          />
+          {inViewport && (
+            <StyledImage
+              key={IMAGES[nextImage]}
+              src={IMAGES[nextImage]}
+              alt=""
+              sizes={IMAGE_SIZES}
+              width={480}
+              height={640}
+              loading="eager"
+              aria-hidden
+              $preload
+            />
+          )}
         </StyledImageContainer>
         <StyledListContainer>
           <List items={contactData} light />

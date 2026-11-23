@@ -33,3 +33,13 @@ Codebase: React + TypeScript + Vite
 ```zsh
   npm run test
 ```
+
+**Optimize images and videos**
+
+Run after adding or replacing anything in `public/images` (requires `ffmpeg`).
+It downsizes oversized JPEGs and MP4s, and generates the AVIF/WebP variants
+and video posters the site expects.
+
+```zsh
+  npm run optimize:media
+```

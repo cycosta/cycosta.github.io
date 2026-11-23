@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { LazyVideo } from '../../components/LazyVideo';
+
 import { colors, devices, spacing } from '../../tokens';
 
 const backgroundColors = [
@@ -83,7 +85,7 @@ export const StyledGalleryItem = styled.a<{
   }
 `;
 
-export const StyledGalleryVideo = styled.video`
+export const StyledGalleryVideo = styled(LazyVideo)`
   width: 100%;
   height: 100%;
   object-fit: contain;
