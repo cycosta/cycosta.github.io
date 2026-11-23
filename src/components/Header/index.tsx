@@ -26,13 +26,14 @@ const FOCUSABLE = 'a[href], button:not([disabled])';
 
 export const Header = () => {
   const { theme } = useTheme();
+  // Light text and icons over dark sections.
+  const light = theme === 'dark';
   const { navigationHash, setNavigationHash } = useNavigation();
 
   const { isMobile } = useDevice();
   // Matches the breakpoint where the menu turns into an inline nav bar.
   const isMenuInline = useMediaQuery(devices.lg);
 
-  const [light, setLight] = useState(false);
   const [navVisible, setNavVisible] = useState(false);
 
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -94,10 +95,6 @@ export const Header = () => {
 
     history.replaceState(null, '', url);
   }, [navigationHash]);
-
-  useEffect(() => {
-    theme === 'dark' ? setLight(true) : setLight(false);
-  }, [theme]);
 
   const textColor = light ? colors.neutral.white : colors.primary.green.darkest;
 

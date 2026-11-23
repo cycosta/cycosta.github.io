@@ -28,7 +28,7 @@ export const Container = ({
     if (inViewport) {
       setNavigationHash(id);
     }
-  }, [inViewport]);
+  }, [inViewport, id, setNavigationHash]);
 
   useEffect(() => {
     if (inViewport) {
@@ -36,7 +36,7 @@ export const Container = ({
         ? setTheme('light')
         : setTheme('dark');
     }
-  }, [inViewport, backgroundColor]);
+  }, [inViewport, backgroundColor, setTheme]);
 
   return (
     <StyledContainer

@@ -44,7 +44,7 @@ export const Slider = ({
   useEffect(() => {
     setBackgroundColor(items[current].brandColor);
     setContent(items[current]);
-  }, [current]);
+  }, [current, items, setBackgroundColor, setContent]);
 
   return (
     <>
