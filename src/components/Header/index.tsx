@@ -5,7 +5,7 @@ import { IconType } from '../Icon/Icon.types';
 import { TypographyLevel } from '../Typography/Typography.types';
 
 import { colors, devices } from '../../tokens';
-import { useMotion, useTheme, useNavigation } from '../../context';
+import { useTheme, useNavigation } from '../../context';
 import { useDevice, useMediaQuery } from '../../hooks';
 
 import {
@@ -17,7 +17,6 @@ import {
   StyledList,
   StyledListItem,
   StyledLink,
-  StyledMotionToggle,
 } from './Header.styles';
 import { ICON_WIDTH, ICON_HEIGHT, listItems } from './constants';
 
@@ -28,7 +27,6 @@ const FOCUSABLE = 'a[href], button:not([disabled])';
 export const Header = () => {
   const { theme } = useTheme();
   const { navigationHash, setNavigationHash } = useNavigation();
-  const { motionPaused, setMotionPaused } = useMotion();
 
   const { isMobile } = useDevice();
   // Matches the breakpoint where the menu turns into an inline nav bar.
@@ -110,11 +108,6 @@ export const Header = () => {
         type="button"
         aria-expanded={navVisible}
         aria-controls={MENU_ID}
-        aria-label={
-          currentSectionItem
-            ? `Menu (current section: ${currentSectionItem.label})`
-            : 'Menu'
-        }
         onClick={openMenu}
         $light={light}
       >
@@ -126,6 +119,10 @@ export const Header = () => {
         >
           {currentSectionItem?.label}
         </Typography>
+        {/* Name starts with the visible text (WCAG 2.5.3), e.g. "Experience, menu". */}
+        <span className="visually-hidden">
+          {currentSectionItem ? ', menu' : 'Menu'}
+        </span>
       </StyledToggle>
       <StyledMenu
         id={MENU_ID}
@@ -173,13 +170,6 @@ export const Header = () => {
           </StyledList>
         </StyledNav>
       </StyledMenu>
-      <StyledMotionToggle
-        type="button"
-        onClick={() => setMotionPaused(!motionPaused)}
-        $light={light}
-      >
-        {motionPaused ? 'Play motion' : 'Pause motion'}
-      </StyledMotionToggle>
     </StyledHeader>
   );
 };

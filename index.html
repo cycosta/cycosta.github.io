@@ -5,12 +5,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="cycosta • front-end software engineer" />
-    <meta property="og:image" content="/images/cycosta.jpg" />
-    <meta property="og:url" content="https://cycosta.dev" />
-
     <title>cycosta • front-end software engineer</title>
+    <meta
+      name="description"
+      content="Cynthia Costa is a front-end software engineer with a strong background in product and UI development, building interfaces with React, TypeScript and CSS."
+    />
+    <meta name="author" content="Cynthia Costa" />
+    <link rel="canonical" href="https://cycosta.dev/" />
+
+    <!-- Social previews (Open Graph + Twitter/X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="cycosta" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://cycosta.dev/" />
+    <meta property="og:title" content="cycosta • front-end software engineer" />
+    <meta
+      property="og:description"
+      content="Cynthia Costa is a front-end software engineer with a strong background in product and UI development."
+    />
+    <meta
+      property="og:image"
+      content="https://cycosta.dev/images/og-image.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Portrait of Cynthia Costa" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Icons and browser UI -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#f6f3ee" />
+
+    <!-- Structured data: lets search engines show a profile for this person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Cynthia Costa",
+        "alternateName": "cycosta",
+        "url": "https://cycosta.dev/",
+        "image": "https://cycosta.dev/images/cycosta.jpg",
+        "jobTitle": "Front-End Software Engineer",
+        "description": "Front-end software engineer with a strong background in product and UI development.",
+        "worksFor": { "@type": "Organization", "name": "QuintoAndar" },
+        "knowsAbout": [
+          "HTML",
+          "CSS",
+          "SCSS",
+          "JavaScript",
+          "TypeScript",
+          "React",
+          "Styled Components",
+          "Angular",
+          "Unit testing",
+          "UI/UX"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/cycosta/",
+          "https://github.com/cycosta",
+          "https://codepen.io/cycosta"
+        ]
+      }
+    </script>
 
     <!-- Headline font: preload so the hero text doesn't wait on the CSS. -->
     <link
@@ -24,6 +84,61 @@
 
   <body>
     <div id="root"></div>
+
+    <!-- Readable fallback for visitors and crawlers without JavaScript. -->
+    <noscript>
+      <main
+        style="
+          max-width: 640px;
+          margin: 0 auto;
+          padding: 48px 24px;
+          color: #38553a;
+          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          line-height: 1.5;
+        "
+      >
+        <h1 style="margin-bottom: 8px; font-size: 40px; font-weight: bold">
+          Cynthia Costa
+        </h1>
+        <p>
+          Front-end software engineer with a strong background in product and UI
+          development.
+        </p>
+        <h2 style="margin: 32px 0 8px; font-size: 24px; font-weight: bold">
+          Experience
+        </h2>
+        <ul style="padding-left: 20px; list-style: disc">
+          <li>QuintoAndar — Front-End Software Engineer, 2021 — Present</li>
+          <li>PicPay — Front-End Developer, 2020 — 2021</li>
+          <li>Webedia — Front-End Developer, 2018 — 2020</li>
+          <li>Milk Music — Designer &amp; UI Developer, 2016</li>
+          <li>Convés Web — Designer &amp; UI Developer, 2012 — 2015</li>
+        </ul>
+        <h2 style="margin: 32px 0 8px; font-size: 24px; font-weight: bold">
+          Let's talk
+        </h2>
+        <ul style="padding-left: 20px; list-style: disc">
+          <li>
+            <a
+              style="color: inherit"
+              href="https://www.linkedin.com/in/cycosta/"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a style="color: inherit" href="https://github.com/cycosta"
+              >GitHub</a
+            >
+          </li>
+          <li>
+            <a style="color: inherit" href="https://codepen.io/cycosta"
+              >CodePen</a
+            >
+          </li>
+        </ul>
+      </main>
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

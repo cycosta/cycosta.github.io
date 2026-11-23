@@ -8,7 +8,7 @@ import { LazyVideoProps } from './LazyVideo.types';
 /**
  * A muted, looping video that downloads nothing but its poster until it
  * scrolls into view, and pauses again when it leaves the viewport or the
- * tab is hidden. Stays on its poster while motion is paused.
+ * tab is hidden. Stays on its poster when reduced motion is requested.
  */
 export const LazyVideo = ({
   src,
