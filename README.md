@@ -37,8 +37,9 @@ Codebase: React + TypeScript + Vite
 **Optimize images and videos**
 
 Run after adding or replacing anything in `public/images` (requires `ffmpeg`).
-It downsizes oversized JPEGs and MP4s, and generates the AVIF/WebP variants
-and video posters the site expects.
+It downsizes oversized JPEGs and MP4s, and generates the AVIF/WebP variants,
+video posters, social preview image (`public/images/og-image.jpg`, cropped from
+the portrait) and favicons/app icons (from `src/assets/images/logo.svg`).
 
 ```zsh
   npm run optimize:media
