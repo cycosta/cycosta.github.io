@@ -164,21 +164,23 @@ export const StyledLink = styled.a<{ $light?: boolean }>`
 
   @media ${devices.lg} {
     transition: color 0.3s ease;
-    /* Inactive links: at least 4.5:1 against light and dark sections. */
+    /* Inactive links: at least 4.5:1 against light and dark sections. On
+       dark sections only full white passes on every brand background. */
     color: ${({ $light }) =>
       $light ? colors.neutral.white : colors.primary.green.muted};
-    opacity: ${({ $light }) => ($light ? 0.8 : 1)};
 
     &:hover {
       color: ${({ $light }) =>
         $light ? colors.neutral.white : colors.primary.green.default};
-      opacity: 1;
     }
 
+    /* Underline marks the current section without relying on colour. */
     &.active {
       color: ${({ $light }) =>
         $light ? colors.neutral.white : colors.primary.green.dark};
-      opacity: 1;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 6px;
     }
   }
 `;
