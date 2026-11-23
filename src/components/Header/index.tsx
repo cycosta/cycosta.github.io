@@ -39,7 +39,11 @@ export const Header = () => {
   };
 
   useEffect(() => {
-    history.pushState(null, '', `#${navigationHash}`);
+    const url = navigationHash
+      ? `#${navigationHash}`
+      : window.location.pathname + window.location.search;
+
+    history.replaceState(null, '', url);
   }, [navigationHash]);
 
   useEffect(() => {

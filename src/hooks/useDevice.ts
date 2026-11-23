@@ -10,13 +10,12 @@ export const useDevice = () => {
       setWidth(window.innerWidth);
     };
 
-    handleDeviceDetection();
     window.addEventListener('resize', handleDeviceDetection);
 
     return () => {
       window.removeEventListener('resize', handleDeviceDetection);
     };
-  }, [width, window.innerWidth]);
+  }, []);
 
   const isMobile = width <= sizes.sm;
   const isTablet = width > sizes.sm && width <= sizes.md;

@@ -21,8 +21,6 @@ export const MarqueeSlider = ({
 }: MarqueeSliderProps) => {
   const { isLargeDesktop } = useDevice();
 
-  console.log(isLargeDesktop);
-
   return (
     <StyledMarqueeContainer>
       <Marquee

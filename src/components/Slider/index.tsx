@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import { Typography, ProgressBar } from '../../components';
 import { TypographyLevel } from '../../components/Typography/Typography.types';
@@ -12,6 +12,8 @@ import {
   StyledProgressContainer,
 } from './Slider.styles';
 
+const SLIDE_DURATION_SECONDS = 8;
+
 export const Slider = ({
   items,
   startSlider,
@@ -19,79 +21,74 @@ export const Slider = ({
   setContent,
 }: SliderProps) => {
   const [current, setCurrent] = useState(0);
-  const [previous, setPrevious] = useState<number>(0);
-  const [next, setNext] = useState<number>(0);
 
-  const carouselLoop = () => {
-    if (current === items.length - 1) return setCurrent(0);
-    if (startSlider) setCurrent(current + 1);
-
-    return;
-  };
+  const total = items.length;
+  const previous = (current - 1 + total) % total;
+  const next = (current + 1) % total;
 
   useEffect(() => {
-    const interval = setInterval(() => carouselLoop(), 8000);
+    if (!startSlider) return;
 
+    const interval = setInterval(
+      () => setCurrent((index) => (index + 1) % total),
+      SLIDE_DURATION_SECONDS * 1000,
+    );
+
+    // Restarting the interval whenever `current` changes keeps a full
+    // slide duration after manual navigation.
     return () => clearInterval(interval);
-  });
+  }, [startSlider, total, current]);
 
   useEffect(() => {
     setBackgroundColor(items[current].brandColor);
     setContent(items[current]);
-    setPrevious(current - 1);
-    setNext(current + 1);
   }, [current]);
 
-  const handleItemClick = (direction: 'previous' | 'next') => {
-    direction === 'previous'
-      ? setCurrent(current - 1)
-      : setCurrent(current + 1);
-  };
+  return (
+    <>
+      {items.map((item, index) => {
+        const { name } = item;
 
-  return items.map((item, index) => {
-    const { name } = item;
-
-    return (
-      <>
-        <StyledCarouselItem
-          key={index}
-          $current={current}
-          $active={current === index}
-        >
-          <StyledCarouselTitle $active={current === index}>
-            <StyledButton onClick={() => handleItemClick('previous')}>
-              <Typography
-                level={TypographyLevel.HEADING_LARGE}
-                color={colors.neutral.white}
-              >
-                {items[previous]?.name}
-              </Typography>
-            </StyledButton>
-            <Typography
-              level={TypographyLevel.HEADING_LARGE}
-              color={colors.neutral.white}
-            >
-              {name}
-            </Typography>
-            <StyledButton onClick={() => handleItemClick('next')}>
-              <Typography
-                level={TypographyLevel.HEADING_LARGE}
-                color={colors.neutral.white}
-              >
-                {items[next]?.name}
-              </Typography>
-            </StyledButton>
-          </StyledCarouselTitle>
-        </StyledCarouselItem>
-        <StyledProgressContainer>
-          <ProgressBar
-            numberOfItems={items.length}
-            active={startSlider}
-            activeItem={current}
-            animationDuration={8}
-          />
-        </StyledProgressContainer>
-      </>
-    );
-  });
+        return (
+          <Fragment key={index}>
+            <StyledCarouselItem $current={current} $active={current === index}>
+              <StyledCarouselTitle $active={current === index}>
+                <StyledButton onClick={() => setCurrent(previous)}>
+                  <Typography
+                    level={TypographyLevel.HEADING_LARGE}
+                    color={colors.neutral.white}
+                  >
+                    {items[previous]?.name}
+                  </Typography>
+                </StyledButton>
+                <Typography
+                  level={TypographyLevel.HEADING_LARGE}
+                  color={colors.neutral.white}
+                >
+                  {name}
+                </Typography>
+                <StyledButton onClick={() => setCurrent(next)}>
+                  <Typography
+                    level={TypographyLevel.HEADING_LARGE}
+                    color={colors.neutral.white}
+                  >
+                    {items[next]?.name}
+                  </Typography>
+                </StyledButton>
+              </StyledCarouselTitle>
+            </StyledCarouselItem>
+          </Fragment>
+        );
+      })}
+      <StyledProgressContainer>
+        <ProgressBar
+          key={current}
+          numberOfItems={total}
+          active={startSlider}
+          activeItem={current}
+          animationDuration={SLIDE_DURATION_SECONDS}
+        />
+      </StyledProgressContainer>
+    </>
+  );
 };

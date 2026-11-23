@@ -6,23 +6,33 @@ export const useInViewport = (
 ) => {
   const [inViewport, setInViewport] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      setInViewport(entry.isIntersecting);
-    }, options);
+  // Depend on primitive values so callers can pass an inline options object
+  // without recreating the observer on every render.
+  const root = options?.root;
+  const rootMargin = options?.rootMargin;
+  const threshold = options?.threshold;
+  const thresholdKey = Array.isArray(threshold)
+    ? threshold.join(',')
+    : threshold;
 
+  useEffect(() => {
     const currentRef = ref.current;
 
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    if (!currentRef) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInViewport(entry.isIntersecting);
+      },
+      { root, rootMargin, threshold },
+    );
+
+    observer.observe(currentRef);
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
+      observer.disconnect();
     };
-  }, [options, ref, inViewport]);
+  }, [ref, root, rootMargin, thresholdKey]);
 
   return inViewport;
 };

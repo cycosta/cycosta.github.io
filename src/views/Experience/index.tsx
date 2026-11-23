@@ -66,7 +66,7 @@ export const Experience = () => {
             setContent={setContent}
           />
         )}
-        <StyledDescription $visible={content.date !== null}>
+        <StyledDescription $visible={Boolean(content.date)}>
           <Typography
             level={TypographyLevel.BODY_SMALL}
             color={colors.neutral.white}
