@@ -108,11 +108,6 @@ export const Header = () => {
         type="button"
         aria-expanded={navVisible}
         aria-controls={MENU_ID}
-        aria-label={
-          currentSectionItem
-            ? `Menu (current section: ${currentSectionItem.label})`
-            : 'Menu'
-        }
         onClick={openMenu}
         $light={light}
       >
@@ -124,6 +119,10 @@ export const Header = () => {
         >
           {currentSectionItem?.label}
         </Typography>
+        {/* Name starts with the visible text (WCAG 2.5.3), e.g. "Experience, menu". */}
+        <span className="visually-hidden">
+          {currentSectionItem ? ', menu' : 'Menu'}
+        </span>
       </StyledToggle>
       <StyledMenu
         id={MENU_ID}

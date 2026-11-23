@@ -38,7 +38,7 @@ describe('<Header />', () => {
   it('should open the menu from a labelled button and close it with Escape', () => {
     renderComponent();
 
-    const toggle = screen.getByRole('button', { name: /^menu/i });
+    const toggle = screen.getByRole('button', { name: /^menu$/i });
     expect(toggle).toHaveAttribute('aria-expanded', 'false');
 
     fireEvent.click(toggle);
