@@ -20,7 +20,7 @@ const defaultProps = {
 };
 
 describe('<List />', () => {
-  const renderComponent = () => render(<List {...defaultProps} />);
+  const renderComponent = (props = defaultProps) => render(<List {...props} />);
 
   it('should render component as a heading element', () => {
     renderComponent();
@@ -40,5 +40,23 @@ describe('<List />', () => {
         name: /list item three/i,
       }),
     ).toBeInTheDocument();
+  });
+
+  it('should open web links in a new tab safely and say so', () => {
+    renderComponent({
+      items: [
+        { title: 'GitHub', url: 'https://github.com/cycosta' },
+        { title: 'Send Hi', url: 'mailto:hello@example.com' },
+      ],
+    });
+
+    const external = screen.getByRole('link', {
+      name: 'GitHub (opens in a new tab)',
+    });
+    expect(external).toHaveAttribute('target', '_blank');
+    expect(external).toHaveAttribute('rel', 'noopener noreferrer');
+
+    const mail = screen.getByRole('link', { name: 'Send Hi' });
+    expect(mail).not.toHaveAttribute('target');
   });
 });

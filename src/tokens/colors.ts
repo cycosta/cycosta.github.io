@@ -6,6 +6,8 @@ export const colors = {
       default: '#036147',
       dark: '#38553a',
       darkest: '#2d442e',
+      // Lightest green-gray that still reaches 4.5:1 on offWhite.
+      muted: '#66705f',
     },
   },
   neutral: {
@@ -31,9 +33,11 @@ export const colors = {
   },
   brand: {
     quintoAndar: '#3957bd',
-    picpay: '#11c76f',
+    // Darkened from #11c76f so white text reaches 4.5:1.
+    picpay: '#0b854a',
     webedia: '#0028bd',
-    milk: '#08aad9',
+    // Darkened from #08aad9 so white text reaches 4.5:1.
+    milk: '#067ea0',
     conves: '#010475',
   },
   video: {

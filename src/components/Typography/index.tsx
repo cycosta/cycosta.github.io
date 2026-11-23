@@ -15,13 +15,16 @@ const renderTag = (level: TypographyLevel) => levelTags[level];
 export const Typography = ({
   level = TypographyLevel.BODY_MEDIUM,
   color,
+  as,
+  id,
   children,
 }: TypographyProps) => {
-  const typographyTag = renderTag(level);
+  const typographyTag = as ?? renderTag(level);
 
   return (
     <StyledTypography
       as={typographyTag}
+      id={id}
       className={`typography typography__${level}`}
       $color={color}
     >

@@ -1,9 +1,11 @@
-import { ThemeProvider, NavigationProvider } from './';
+import { MotionProvider, ThemeProvider, NavigationProvider } from './';
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ThemeProvider>
-      <NavigationProvider>{children}</NavigationProvider>
-    </ThemeProvider>
+    <MotionProvider>
+      <ThemeProvider>
+        <NavigationProvider>{children}</NavigationProvider>
+      </ThemeProvider>
+    </MotionProvider>
   );
 };

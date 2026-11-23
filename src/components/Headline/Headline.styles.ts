@@ -17,12 +17,14 @@ export const StyledHeadline = styled.div`
   z-index: 1;
 `;
 
-export const StyledParagraph = styled.div`
+export const StyledParagraph = styled.span`
   position: relative;
+  display: block;
   overflow: hidden;
 
-  h1 {
+  > * {
     position: relative;
+    display: block;
     padding-top: ${spacing.hxxsmall};
     transform: translateY(100%);
     transform-origin: bottom;
@@ -30,7 +32,7 @@ export const StyledParagraph = styled.div`
   }
 
   &:last-child {
-    h1 {
+    > * {
       animation-delay: 0.5s;
     }
   }

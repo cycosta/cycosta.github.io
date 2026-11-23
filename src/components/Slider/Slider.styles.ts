@@ -40,7 +40,8 @@ export const StyledCarouselTitle = styled.div<{
     &:nth-child(1),
     &:nth-child(3) {
       display: ${({ $active }) => ($active ? 'block' : 'none')};
-      opacity: 0.2;
+      /* Large text: keeps at least 3:1 on every brand background. */
+      opacity: 0.75;
     }
 
     &:nth-child(1) {

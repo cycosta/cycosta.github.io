@@ -16,6 +16,7 @@ export const Button = ({
     $size={size}
     $light={light}
     $fullWidth={fullWidth}
+    type={variant === ButtonVariant.LINK ? undefined : 'button'}
     disabled={disabled}
     onClick={onClick}
     className={disabled && variant === ButtonVariant.LINK ? 'disabled' : ''}

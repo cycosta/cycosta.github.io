@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 
+import { useMotion } from '../../context';
 import { useInViewport } from '../../hooks';
 
 import { LazyVideoProps } from './LazyVideo.types';
@@ -7,7 +8,7 @@ import { LazyVideoProps } from './LazyVideo.types';
 /**
  * A muted, looping video that downloads nothing but its poster until it
  * scrolls into view, and pauses again when it leaves the viewport or the
- * tab is hidden.
+ * tab is hidden. Stays on its poster while motion is paused.
  */
 export const LazyVideo = ({
   src,
@@ -16,6 +17,7 @@ export const LazyVideo = ({
 }: LazyVideoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const inViewport = useInViewport(videoRef, { rootMargin: '200px 0px' });
+  const { motionPaused } = useMotion();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -23,7 +25,7 @@ export const LazyVideo = ({
     if (!video) return;
 
     const sync = () => {
-      if (inViewport && !document.hidden) {
+      if (inViewport && !motionPaused && !document.hidden) {
         // play() rejects if interrupted (e.g. scrolled away quickly); ignore.
         video.play().catch(() => undefined);
       } else {
@@ -35,7 +37,7 @@ export const LazyVideo = ({
     document.addEventListener('visibilitychange', sync);
 
     return () => document.removeEventListener('visibilitychange', sync);
-  }, [inViewport]);
+  }, [inViewport, motionPaused]);
 
   return (
     <video
