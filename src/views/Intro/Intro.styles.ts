@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
+import { Picture } from '../../components/Picture';
+
 import { devices, spacing } from '../../tokens';
 
 const fadeIn = keyframes`
@@ -39,7 +41,7 @@ export const StyledImageContainer = styled.div`
   }
 `;
 
-export const StyledImage = styled.img`
+export const StyledImage = styled(Picture)`
   width: 240px;
   height: 340px;
   object-fit: cover;

@@ -12,12 +12,23 @@ import {
   StyledSkillsList,
 } from './Intro.styles';
 
+// Mirrors the StyledImage widths: 240px mobile, column width on lg, 480px xl.
+const IMAGE_SIZES =
+  '(min-width: 1280px) 480px, (min-width: 1024px) 30vw, 240px';
+
 export const Intro = () => (
   <Container id="about">
     <StyledWrapper>
       <Headline paragraphs={['Cynthia', 'Costa']} />
       <StyledImageContainer>
-        <StyledImage src="/images/cycosta.jpg" alt="Cynthia Costa" />
+        <StyledImage
+          src="/images/cycosta.jpg"
+          alt="Cynthia Costa"
+          sizes={IMAGE_SIZES}
+          width={480}
+          height={630}
+          priority
+        />
       </StyledImageContainer>
       <StyledContent>
         <Typography

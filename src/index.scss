@@ -15,13 +15,15 @@ html {
 /* Tusker Grotesk Semibold */
 @font-face {
   font-family: 'Tusker Grotesk';
-  src: url('assets/fonts/Tusker.otf') format('opentype');
+  src: url('assets/fonts/Tusker.woff2') format('woff2');
   font-style: normal;
+  font-display: swap;
 }
 
 /* Fleuron Regular */
 @font-face {
   font-family: 'FleuronRegular';
-  src: url('assets/fonts/FleuronRegular.otf') format('opentype');
+  src: url('assets/fonts/FleuronRegular.woff2') format('woff2');
   font-style: normal;
+  font-display: swap;
 }

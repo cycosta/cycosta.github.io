@@ -12,15 +12,16 @@ import { useDevice } from '../../hooks';
 
 import { StyledWrapper, StyledBottomWrapper } from './Featured.styles';
 
+const PAGE_SIZE = 5;
+
 export const Featured = () => {
   const { isMobile } = useDevice();
 
-  const [visibleList, setVisibleList] = useState(featuredData.slice(0, 5));
-  const [visibleListCount, setVisibleListCount] = useState(5);
+  const [visibleListCount, setVisibleListCount] = useState(PAGE_SIZE);
+  const visibleList = featuredData.slice(0, visibleListCount);
 
   const handleLoadMore = () => {
-    setVisibleListCount((prevCount) => prevCount + 5);
-    setVisibleList(featuredData.slice(0, visibleListCount + 5));
+    setVisibleListCount((prevCount) => prevCount + PAGE_SIZE);
   };
 
   return (

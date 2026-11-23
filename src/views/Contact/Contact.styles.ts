@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Picture } from '../../components/Picture';
+
 import { spacing, devices } from '../../tokens';
 
 export const StyledWrapper = styled.div`
@@ -23,6 +25,7 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledImageContainer = styled.div`
+  position: relative;
   justify-self: end;
 
   @media ${devices.lg} {
@@ -30,7 +33,7 @@ export const StyledImageContainer = styled.div`
   }
 `;
 
-export const StyledImage = styled.img`
+export const StyledImage = styled(Picture)<{ $preload?: boolean }>`
   width: 240px;
   height: 350px;
   object-fit: cover;
@@ -44,6 +47,16 @@ export const StyledImage = styled.img`
     width: 480px;
     height: 640px;
   }
+
+  /* Rendered off-screen so the browser fetches the next slide in advance. */
+  ${({ $preload }) =>
+    $preload &&
+    `
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+  `}
 `;
 
 export const StyledListContainer = styled.div`
