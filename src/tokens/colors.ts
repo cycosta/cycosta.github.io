@@ -33,11 +33,9 @@ export const colors = {
   },
   brand: {
     quintoAndar: '#3957bd',
-    // Darkened from #11c76f so white text reaches 4.5:1.
-    picpay: '#0b854a',
+    picpay: '#11c76f',
     webedia: '#0028bd',
-    // Darkened from #08aad9 so white text reaches 4.5:1.
-    milk: '#067ea0',
+    milk: '#08aad9',
     conves: '#010475',
   },
   video: {
