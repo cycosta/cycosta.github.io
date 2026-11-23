@@ -184,25 +184,3 @@ export const StyledLink = styled.a<{ $light?: boolean }>`
     }
   }
 `;
-
-export const StyledMotionToggle = styled.button<{ $light: boolean }>`
-  padding: 0;
-  border: none;
-  background: none;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  line-height: 16px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  white-space: nowrap;
-  color: ${({ $light }) =>
-    $light ? colors.neutral.white : colors.primary.green.dark};
-  cursor: pointer;
-  transition: color 0.3s ease;
-
-  @media ${devices.lg} {
-    font-family: 'FleuronRegular', 'Helvetica Neue', Helvetica, Arial,
-      sans-serif;
-    font-size: 16px;
-  }
-`;

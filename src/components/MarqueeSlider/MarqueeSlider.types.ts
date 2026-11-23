@@ -1,7 +1,7 @@
 export interface MarqueeSliderProps {
   items: any[];
   startSlider: boolean;
-  /** Stop scrolling (motion paused, or a company has keyboard focus). */
+  /** Stop scrolling (reduced motion, or a company has keyboard focus). */
   paused?: boolean;
   setBackgroundColor: (color: string) => void;
   hovered: boolean;

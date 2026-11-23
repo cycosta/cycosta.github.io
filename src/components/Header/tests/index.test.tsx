@@ -1,16 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { MotionProvider } from '../../../context';
-
 import { Header } from '..';
 
 describe('<Header />', () => {
-  const renderComponent = () =>
-    render(
-      <MotionProvider>
-        <Header />
-      </MotionProvider>,
-    );
+  const renderComponent = () => render(<Header />);
 
   it('should render component with default content', () => {
     renderComponent();
@@ -63,15 +56,5 @@ describe('<Header />', () => {
     renderComponent();
 
     expect(document.getElementById('site-menu')).toHaveAttribute('inert');
-  });
-
-  it('should toggle autoplaying motion', () => {
-    renderComponent();
-
-    fireEvent.click(screen.getByRole('button', { name: /pause motion/i }));
-
-    expect(
-      screen.getByRole('button', { name: /play motion/i }),
-    ).toBeInTheDocument();
   });
 });

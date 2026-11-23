@@ -1,7 +1,7 @@
 export interface SliderProps {
   items: any[];
   startSlider: boolean;
-  /** Stop auto-advancing (e.g. motion paused by the user). */
+  /** Stop auto-advancing (e.g. reduced motion requested). */
   paused?: boolean;
   setBackgroundColor: (color: string) => void;
   setContent: (content: {
