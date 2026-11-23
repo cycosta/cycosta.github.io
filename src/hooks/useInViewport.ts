@@ -10,10 +10,8 @@ export const useInViewport = (
   // without recreating the observer on every render.
   const root = options?.root;
   const rootMargin = options?.rootMargin;
-  const threshold = options?.threshold;
-  const thresholdKey = Array.isArray(threshold)
-    ? threshold.join(',')
-    : threshold;
+  // Arrays are compared by value via a string key, then rebuilt below.
+  const thresholdKey = [options?.threshold ?? []].flat().join(',');
 
   useEffect(() => {
     const currentRef = ref.current;
@@ -24,7 +22,11 @@ export const useInViewport = (
       ([entry]) => {
         setInViewport(entry.isIntersecting);
       },
-      { root, rootMargin, threshold },
+      {
+        root,
+        rootMargin,
+        threshold: thresholdKey ? thresholdKey.split(',').map(Number) : 0,
+      },
     );
 
     observer.observe(currentRef);
